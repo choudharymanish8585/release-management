@@ -1,0 +1,12 @@
+{
+  "orgName": "SFDCFacts RMS",
+  "edition": "Developer",
+  "hasSampleData": true,
+  "adminEmail": "choudharymanish8585@gmail.com",
+  "features": [],
+  "settings": {
+    "orgPreferenceSettings": {
+      "s1DesktopEnabled": true
+    }
+  }
+}
