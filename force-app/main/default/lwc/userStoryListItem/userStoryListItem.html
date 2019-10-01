@@ -1,0 +1,53 @@
+<template>
+
+        <article class="slds-tile slds-tile_board" onclick={sprintClickHandler}>
+            <div class="slds-grid slds-grid_align-spread slds-has-flexi-truncate">
+                <h3 class="slds-tile__title slds-text-heading_medium" title={userStory.title}>
+                    <a href={userStoryUrl} target="_blank">{userStory.workItem} - {userStory.title}</a>
+                </h3>
+                <div class="slds-shrink-none">
+                    <!-- <lightning-icon icon-name="utility:chevrondown" size="x-small"></lightning-icon> -->
+                    <lightning-button-menu alternative-text="Show menu" menu-alignment="auto" variant="border-filled" onselect={handleOnselect}>
+                        <lightning-menu-item value="edit" label="Edit"></lightning-menu-item>
+                        <lightning-menu-item value="add" label="Add Component"></lightning-menu-item>
+                    </lightning-button-menu>
+                </div>
+            </div>
+            <div class="slds-tile__detail">
+                <div>
+                    <ul class="slds-page-header__detail-row" style="background-color: transparent;margin-top: -.50rem;">
+                            <li class="slds-page-header__detail-block">
+                                <div class="slds-text-title slds-truncate" title="Type">Type</div>
+                                <div class="slds-truncate" title={userStory.type}>{userStory.type}</div>
+                            </li>
+                        <li class="slds-page-header__detail-block">
+                            <div class="slds-text-title slds-truncate" title="Story Point">Story Point</div>
+                            <div class="slds-truncate" title={userStory.storyPoint}>{userStory.storyPoint}</div>
+                        </li>
+                        <li class="slds-page-header__detail-block">
+                            <div class="slds-text-title slds-truncate" title="Total Component Modified">Total Component Modified
+                            </div>
+                            <div class="slds-truncate" title={userStory.numberOfComponents}>{userStory.numberOfComponents}
+                            </div>
+                        </li>
+                        <li class="slds-page-header__detail-block">
+                            <div class="slds-text-title slds-truncate" title="Dev Owner">Dev Owner</div>
+                            <div class="slds-truncate" title={userStory.devOwnerName}>{userStory.devOwnerName}</div>
+                        </li>
+                        <li class="slds-page-header__detail-block">
+                            <div class="slds-text-title slds-truncate" title="Dev Owner">SIT Owner</div>
+                            <div class="slds-truncate" title={userStory.devOwnerName}>{userStory.sitOwnerName}</div>
+                        </li>
+                        <li class="slds-page-header__detail-block">
+                            <div class="slds-text-title slds-truncate" title="Dev Owner">UAT Owner</div>
+                            <div class="slds-truncate" title={userStory.devOwnerName}>{userStory.uatOwnerName}</div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <p class="slds-p-top_small">
+                <c-picklist-path s-object-name="User_Story__c" picklist-field-name="Status__c" selected-item={userStory.status} onpathclick={pathClickHandler} onpathcomplete={pathCompleteHandler}></c-picklist-path>
+            </p>
+        </article>
+    
+    </template>

@@ -1,0 +1,104 @@
+<template>
+    <template if:true={hasSprint}>
+        <div class="slds-page-header slds-page-header_record-home">
+            <div class="slds-page-header__row">
+                <div class="slds-page-header__col-title">
+                    <div class="slds-media">
+                        <div class="slds-media__figure">
+                        </div>
+                        <div class="slds-media__body">
+                            <div class="slds-page-header__name">
+                                <div class="slds-page-header__name-title">
+                                    <h1>
+                                        <span>{sprint.sprintNumber}</span>
+                                        <span class="slds-page-header__title slds-truncate"
+                                            title={sprint.title}>{sprint.title}</span>
+                                    </h1>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slds-page-header__col-actions">
+                    <div class="slds-page-header__controls">
+                        <div class="slds-page-header__control">
+                            <ul class="slds-button-group-list">
+                                <li>
+                                    <lightning-button label="Edit" onclick={editSprintHandler}></lightning-button>
+                                </li>
+                                <li>
+                                    <lightning-button label="Release Notes" onclick={openReleaseNotes}>
+                                    </lightning-button>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="slds-page-header__row slds-page-header__row_gutters">
+                <div class="slds-page-header__col-details">
+                    <ul class="slds-page-header__detail-row">
+                        <li class="slds-page-header__detail-block">
+                            <div class="slds-text-title slds-truncate" title="Type">Type</div>
+                            <div class="slds-truncate" title={sprint.type}>{sprint.type}</div>
+                        </li>
+                        <li class="slds-page-header__detail-block">
+                            <div class="slds-text-title slds-truncate" title="Status">Status</div>
+                            <div class="slds-truncate" title={sprint.status}>{sprint.status}</div>
+                        </li>
+                        <li class="slds-page-header__detail-block">
+                            <div class="slds-text-title slds-truncate" title="Total User Stories">Total User Stories
+                            </div>
+                            <div class="slds-truncate" title={sprint.numberOfUserStories}>{sprint.numberOfUserStories}
+                            </div>
+                        </li>
+                        <li class="slds-page-header__detail-block">
+                            <div class="slds-text-title slds-truncate" title="Sprint Owner">Sprint Owner</div>
+                            <div class="slds-truncate" title={sprint.ownerName}>{sprint.ownerName}</div>
+                        </li>
+                        <li class="slds-page-header__detail-block">
+                            <div class="slds-text-title slds-truncate" title="Release Date">Release Date</div>
+                            <div class="slds-truncate" title={sprint.releaseDate}>{sprint.releaseDate}</div>
+                        </li>
+                        <li class="slds-page-header__detail-block">
+                            <div class="slds-text-title slds-truncate" title="SIT Date">SIT Date</div>
+                            <div class="slds-truncate" title={sprint.sitDate}>{sprint.sitDate}</div>
+                        </li>
+                        <li class="slds-page-header__detail-block">
+                            <div class="slds-text-title slds-truncate" title="UAT Date">UAT Date</div>
+                            <div class="slds-truncate" title={sprint.uatDate}>{sprint.uatDate}</div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+
+        <template if:true={openReleaseNotesModal}>
+            <div class="sf-modal">
+                <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true"
+                    aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+                    <div class="slds-modal__container">
+                        <header class="slds-modal__header">
+                            <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse"
+                                title="Close" onclick={closeModal}>
+                                <lightning-icon icon-name="utility:close" size="medium">
+                                </lightning-icon>
+                                <span class="slds-assistive-text">Close</span>
+                            </button>
+                            <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">{sprint.title} Release Notes
+                            </h2>
+                        </header>
+                        <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                            <c-sprint-release-notes sprint-id={sprint.id} sprint-description={sprint.description}></c-sprint-release-notes>
+                        </div>
+                        <footer class="slds-modal__footer">
+                            <lightning-button label="Cancel" variant="neutral" onclick={closeModal}></lightning-button>
+                        </footer>
+                    </div>
+                </section>
+                <div class="slds-backdrop slds-backdrop_open"></div>
+            </div>
+        </template>
+    </template>
+</template>

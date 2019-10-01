@@ -2,7 +2,35 @@
     "compilerOptions": {
         "experimentalDecorators": true,
         "baseUrl": ".",
-        "paths": {}
+        "paths": {
+            "c/pubsub": [
+                "pubsub/pubsub.js"
+            ],
+            "c/sprintHeader": [
+                "sprintHeader/sprintHeader.js"
+            ],
+            "c/sprintList": [
+                "sprintList/sprintList.js"
+            ],
+            "c/sprintListItem": [
+                "sprintListItem/sprintListItem.js"
+            ],
+            "c/sprintReleaseNotes": [
+                "sprintReleaseNotes/sprintReleaseNotes.js"
+            ],
+            "c/userStoryList": [
+                "userStoryList/userStoryList.js"
+            ],
+            "c/userStoryListItem": [
+                "userStoryListItem/userStoryListItem.js"
+            ],
+            "c/utils": [
+                "utils/utils.js"
+            ],
+            "c/picklistPath": [
+                "picklistPath/picklistPath.js"
+            ]
+        }
     },
     "include": [
         "**/*",

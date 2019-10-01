@@ -11,9 +11,11 @@
     <label>Release Management</label>
     <navType>Standard</navType>
     <tabs>standard-Feed</tabs>
+    <tabs>Release_Managment</tabs>
     <tabs>Sprint__c</tabs>
     <tabs>User_Story__c</tabs>
     <tabs>User_Story_Component__c</tabs>
     <tabs>Product_Tag__c</tabs>
+    <tabs>Exception__c</tabs>
     <uiType>Lightning</uiType>
 </CustomApplication>

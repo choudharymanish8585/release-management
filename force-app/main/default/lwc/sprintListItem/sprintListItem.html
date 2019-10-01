@@ -1,0 +1,21 @@
+<template>
+
+    <article class="slds-tile slds-tile_board" onclick={sprintClickHandler}>
+        <h3 class="slds-tile__title slds-truncate" title={sprintNumber}>
+            <a href={sprintUrl} target="_blank">{sprintNumber}</a>
+        </h3>
+        <div class="slds-tile__detail">
+            <p class="slds-text-heading_medium">{title}</p>
+            <p class="slds-truncate" title={description}>
+                {description}
+            </p>
+            <p class="slds-m-top_small slds-truncate" title={releaseLabel}>
+                <lightning-badge label={releaseLabel}></lightning-badge>
+            </p>
+            <span class="slds-icon_container slds-tile_board__icon" title="Release Status">
+                <lightning-icon size="x-small" icon-name={releaseIcon} variant={iconVariant}></lightning-icon>
+            </span>
+        </div>
+    </article>
+
+</template>

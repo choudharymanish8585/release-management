@@ -1,0 +1,67 @@
+<template>
+    <div class="app slds-p-around_medium">
+        <h3 class="slds-text-body_regular"> {sprintDescription}</h3>
+        <div class="slds-m-top_small slds-border_bottom slds-p-bottom_small">
+            <lightning-layout>
+                <lightning-layout-item size="3">
+                    <div class="slds-text-heading_label" style="margin-top: 10px;">Product Tags</div>
+                </lightning-layout-item>
+                <lightning-layout-item size="6">
+                    <div style="display: flex; flex-wrap: wrap;">
+                        <template for:each={productTags} for:item="productTag">
+                            <lightning-badge label={productTag.label} 
+                                key={productTag.id} 
+                                class={productTag.class}
+                                data-id={productTag.id}
+                                onclick={productTagClickHandler}></lightning-badge>
+                        </template>
+                    </div>
+                </lightning-layout-item>
+                <lightning-layout-item size="3">
+                    <div style="margin-top: 5px;">
+                        <lightning-input type="checkbox" 
+                            label="Detailed View" 
+                            value={detailMode} 
+                            onclick={switchDetailMode}></lightning-input>
+                    </div>
+                </lightning-layout-item>
+            </lightning-layout>
+        </div>
+            <template if:true={showFeatures}>
+            <div class="slds-p-top_large">
+                <h2 class="slds-text-heading_large">Features</h2>
+                <ul class="slds-list_dotted">
+                    <template for:each={features} for:item='feature'>
+                        <li key={feature.id} class="slds-m-horizontal_xx-small slds-m-bottom_x-small">
+                            <a href="JavaScript:Void(0);">{feature.workItem}</a> - {feature.title}
+                            <template if:true={detailMode}>
+                                <p class='slds-text-body_small slds-text-color_weak'>
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                                </p>
+                            </template>
+                        </li>
+                    </template>
+                </ul>
+            </div>
+        </template>
+
+        <template if:true={showBugs}>
+            <div class="slds-p-top_large">
+                <h2 class="slds-text-heading_large">Bugs</h2>
+                <ul class="slds-list_dotted">
+                    <template for:each={bugs} for:item='bug'>
+                        <li key={bug.id} class="slds-m-horizontal_xx-small slds-m-bottom_x-small">
+                            <a href="JavaScript:Void(0);">{bug.workItem}</a> - {bug.title}
+                            <template if:true={detailMode}>
+                                <p class='slds-text-body_small slds-text-color_weak'>
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                                </p>
+                            </template>
+                        </li>
+                    </template>
+                </ul>
+            </div>
+        </template>
+
+    </div>
+</template>

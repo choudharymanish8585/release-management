@@ -154,7 +154,7 @@
     <enableStreamingApi>false</enableStreamingApi>
     <label>User Story</label>
     <nameField>
-        <label>User Story Name</label>
+        <label>Title</label>
         <type>Text</type>
     </nameField>
     <pluralLabel>User Stories</pluralLabel>

@@ -1,0 +1,7 @@
+.userstory-item {
+    cursor: pointer;
+}
+
+.userstory-item:hover{
+    background: whitesmoke;
+}

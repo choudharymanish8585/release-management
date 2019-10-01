@@ -1,0 +1,14 @@
+<template>
+    <template if:true={hasSprint}>
+        <lightning-card title="User Stories">
+            <lightning-button slot="actions" label="New" onclick={createUserStoryHandler} ></lightning-button>
+            <ul>
+                <template for:each={userStories} for:item="userStory">
+                    <li class="slds-border_bottom slds-p-around_medium userstory-item" key={userStory.id}>
+                        <c-user-story-list-item user-story={userStory} base-url={baseUrl.data}></c-user-story-list-item>
+                    </li>
+                </template>
+            </ul>
+        </lightning-card>
+    </template>
+</template>
