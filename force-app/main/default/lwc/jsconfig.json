@@ -3,6 +3,9 @@
         "experimentalDecorators": true,
         "baseUrl": ".",
         "paths": {
+            "c/picklistPath": [
+                "picklistPath/picklistPath.js"
+            ],
             "c/pubsub": [
                 "pubsub/pubsub.js"
             ],
@@ -26,9 +29,6 @@
             ],
             "c/utils": [
                 "utils/utils.js"
-            ],
-            "c/picklistPath": [
-                "picklistPath/picklistPath.js"
             ]
         }
     },

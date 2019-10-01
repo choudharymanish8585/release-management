@@ -31,7 +31,7 @@ public with sharing class ReleaseManagementUtil {
                            'LIMIT 2000';
             return Database.query(query);
         } catch(Exception e){
-            ExceptionLogger.logException(e.getStackTraceString(), e.getMessage(), ReleaseManagementUtil.class.getName(), true);
+            ExceptionLogger.logException(e, ReleaseManagementUtil.class.getName(), true);
             return null;
         }
     }
@@ -70,7 +70,7 @@ public with sharing class ReleaseManagementUtil {
                            'LIMIT 2000';
             return Database.query(query);
         } catch(Exception e){
-            ExceptionLogger.logException(e.getStackTraceString(), e.getMessage(), ReleaseManagementUtil.class.getName(), true);
+            ExceptionLogger.logException(e, ReleaseManagementUtil.class.getName(), true);
             return null;
         }
     }
@@ -140,7 +140,7 @@ public with sharing class ReleaseManagementUtil {
             }
             return Database.query(query);
         } catch(Exception e){
-            ExceptionLogger.logException(e.getStackTraceString(), e.getMessage(), ReleaseManagementUtil.class.getName(), true);
+            ExceptionLogger.logException(e, ReleaseManagementUtil.class.getName(), true);
             return null;
         }
     }
@@ -173,7 +173,7 @@ public with sharing class ReleaseManagementUtil {
                            'WHERE Sprint__c =: sprintId';
             return Database.query(query);
         } catch(Exception e){
-            ExceptionLogger.logException(e.getStackTraceString(), e.getMessage(), ReleaseManagementUtil.class.getName(), true);
+            ExceptionLogger.logException(e, ReleaseManagementUtil.class.getName(), true);
             return null;
         }
     }
@@ -233,7 +233,7 @@ public with sharing class ReleaseManagementUtil {
                            'WHERE Sprint__c =: sprintId';
             return Database.query(query);
         } catch(Exception e){
-            ExceptionLogger.logException(e.getStackTraceString(), e.getMessage(), ReleaseManagementUtil.class.getName(), true);
+            ExceptionLogger.logException(e, ReleaseManagementUtil.class.getName(), true);
             return null;
         }
     }
@@ -248,6 +248,63 @@ public with sharing class ReleaseManagementUtil {
 
         if(userStories != null &&  userStories.size() > 0){
             return userStories;
+        }
+        return null;
+    }
+
+    /**
+     * Get all user story component wrapped for a user story
+     * @param userStoryId
+     */
+    public static List<SObject> getComponentsByUserStory(String userStoryId){
+        try{
+            String query = 'SELECT Id, ' +
+                           'Name, ' +
+                           'Api_Name__c, ' +
+                           'Change_Type__c, ' +
+                           'Metadata_Type__c, ' +
+                           'User_Story__c, ' +
+                           'User_Story__r.Name ' +
+                           'FROM User_Story_Component__c ' +
+                           'WHERE User_Story__c =: userStoryId';
+            return Database.query(query);
+        } catch(Exception e){
+            ExceptionLogger.logException(e, ReleaseManagementUtil.class.getName(), true);
+            return null;
+        }
+    }
+
+    /**
+     * Get all ser story components wrapped for a user story
+     * @param userStoryId
+     */
+    public static List<UserStoryComponentWrapper> getComponentsByUserStoryWrapped(String userStoryId){
+        List<SObject> userStoryCompObjs = ReleaseManagementUtil.getComponentsByUserStory(userStoryId);
+        List<UserStoryComponentWrapper> userStoryComponents = ReleaseManagementUtil.wrapUserStoryComponent(userStoryCompObjs);
+
+        if(userStoryComponents != null &&  userStoryComponents.size() > 0){
+            return userStoryComponents;
+        }
+        return null;
+    }
+
+    public static List<UserStoryComponentWrapper> wrapUserStoryComponent(List<SObject> userStoryCompObjs){
+        if(userStoryCompObjs!=null && userStoryCompObjs.size()>0){
+            List<UserStoryComponentWrapper> userStoryComponents = new List<UserStoryComponentWrapper>();
+            for(sObject userStoryCompObj : userStoryCompObjs){
+                //process record here
+                UserStoryComponentWrapper userStoryComponent = new UserStoryComponentWrapper();
+                userStoryComponent.id = userStoryCompObj.Id;
+                userStoryComponent.name = getFieldValue(userStoryCompObj, 'Name') != null ? String.valueOf(getFieldValue(userStoryCompObj, 'Name')) : null;
+                userStoryComponent.apiName = getFieldValue(userStoryCompObj, 'Api_Name__c') != null ? String.valueOf(getFieldValue(userStoryCompObj, 'Api_Name__c')) : null;
+                userStoryComponent.changeType = getFieldValue(userStoryCompObj, 'Change_Type__c') != null ? String.valueOf(getFieldValue(userStoryCompObj, 'Change_Type__c')) : null;
+                userStoryComponent.metadataType = getFieldValue(userStoryCompObj, 'Metadata_Type__c') != null ? String.valueOf(getFieldValue(userStoryCompObj, 'Metadata_Type__c')) : null;
+                userStoryComponent.userStoryId = getFieldValue(userStoryCompObj, 'User_Story__c') != null ? String.valueOf(getFieldValue(userStoryCompObj, 'User_Story__c')) : null;
+                userStoryComponent.userStoryName = getSObjectValue(userStoryCompObj,'User_Story__r') != null ? (getFieldValue(userStoryCompObj.getSObject('User_Story__r'), 'Name') != null ? String.valueOf(getFieldValue(userStoryCompObj.getSObject('User_Story__r'), 'Name')) : null) : null;
+        
+                userStoryComponents.add(userStoryComponent);
+            }
+            return userStoryComponents;
         }
         return null;
     }
@@ -283,6 +340,7 @@ public with sharing class ReleaseManagementUtil {
                 userStory.storyPoint = getFieldValue(userStoryObj, 'Story_Points__c') != null ? Integer.valueOf(getFieldValue(userStoryObj, 'Story_Points__c')) : null;
                 userStory.devEffort = getFieldValue(userStoryObj, 'Dev_Effort_Hrs__c') != null ? Integer.valueOf(getFieldValue(userStoryObj, 'Dev_Effort_Hrs__c')) : null;
                 userStory.qaEffort = getFieldValue(userStoryObj, 'QA_Effort_Hrs__c') != null ? Integer.valueOf(getFieldValue(userStoryObj, 'QA_Effort_Hrs__c')) : null;
+                
                 userStories.add(userStory);
             }
             return userStories;
@@ -308,6 +366,7 @@ public with sharing class ReleaseManagementUtil {
                 sprint.uatDate = getFieldValue(sprintObj, 'UAT_Date__c') != null ? Date.valueOf(getFieldValue(sprintObj, 'UAT_Date__c')) : null;
                 sprint.ownerId = getFieldValue(sprintObj, 'OwnerId') != null ? String.valueOf(getFieldValue(sprintObj, 'OwnerId')) : null;
                 sprint.ownerName = getSObjectValue(sprintObj,'Owner') != null ? (getFieldValue(sprintObj.getSObject('Owner'), 'Name') != null ? String.valueOf(getFieldValue(sprintObj.getSObject('Owner'), 'Name')) : null) : null;
+                
                 sprints.add(sprint);
             }
             return sprints;
@@ -321,7 +380,7 @@ public with sharing class ReleaseManagementUtil {
             update sObjects;
             return 'success';
         } catch(Exception e){
-            ExceptionLogger.logException(e.getStackTraceString(), e.getMessage(), ReleaseManagementUtil.class.getName(), true);
+            ExceptionLogger.logException(e, ReleaseManagementUtil.class.getName(), true);
             Database.rollback(sp);
             return e.getMessage();
         }
@@ -389,5 +448,15 @@ public with sharing class ReleaseManagementUtil {
         @AuraEnabled public Integer storyPoint;
         @AuraEnabled public Integer devEffort;
         @AuraEnabled public Integer qaEffort;
+    }
+
+    public class UserStoryComponentWrapper{
+        @AuraEnabled public String id;
+        @AuraEnabled public String userStoryId;
+        @AuraEnabled public String userStoryName;
+        @AuraEnabled public String apiName;
+        @AuraEnabled public String metadataType;
+        @AuraEnabled public String changeType;
+        @AuraEnabled public String name;
     }
 }

@@ -4,7 +4,7 @@
             <lightning-button slot="actions" label="New" onclick={createUserStoryHandler} ></lightning-button>
             <ul>
                 <template for:each={userStories} for:item="userStory">
-                    <li class="slds-border_bottom slds-p-around_medium userstory-item" key={userStory.id}>
+                    <li class="slds-border_bottom slds-p-around_medium userstory-item slds-m-top_medium" key={userStory.id}>
                         <c-user-story-list-item user-story={userStory} base-url={baseUrl.data}></c-user-story-list-item>
                     </li>
                 </template>

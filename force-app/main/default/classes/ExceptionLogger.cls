@@ -12,7 +12,9 @@ public with sharing class ExceptionLogger {
         }
     }
 
-    public static void logException(String stackTrace, String errorMessage, String apexClass, Boolean throwCustom){
+    public static void logException(Exception e, String apexClass, Boolean throwCustom){
+        String stackTrace = e.getStackTraceString();
+        String errorMessage = e.getMessage();
         if(Limits.getDmlStatements() == Limits.getLimitDmlStatements()){
             if(Limits.getFutureCalls() != Limits.getLimitFutureCalls()){
                 ExceptionLogger.logExceptionFuture(stackTrace, errorMessage, apexClass);

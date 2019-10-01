@@ -13,7 +13,7 @@ public with sharing class UserStoryListController {
             userStory.put('Status__c', status);
             return ReleaseManagementUtil.updateSObject(new List<SObject>{userStory});
         } catch(Exception e){
-            ExceptionLogger.logException(e.getStackTraceString(), e.getMessage(), UserStoryListController.class.getName(), true);
+            ExceptionLogger.logException(e, UserStoryListController.class.getName(), true);
             return e.getMessage();
         }
     }
