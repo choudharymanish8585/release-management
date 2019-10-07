@@ -29,6 +29,15 @@
             ],
             "c/utils": [
                 "utils/utils.js"
+            ],
+            "c/releaseManagemenntAppTab": [
+                "releaseManagemenntAppTab/releaseManagemenntAppTab.js"
+            ],
+            "c/sprintListMain": [
+                "sprintListMain/sprintListMain.js"
+            ],
+            "c/userStoryListMain": [
+                "userStoryListMain/userStoryListMain.js"
             ]
         }
     },

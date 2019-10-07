@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata" fqn="userStoryListItem">
     <apiVersion>46.0</apiVersion>
+    <description>User story list item. Display important details about a user story</description>
+    <masterLabel>User Story List Item</masterLabel>
     <isExposed>false</isExposed>
 </LightningComponentBundle>

@@ -5,11 +5,6 @@
         <visible>true</visible>
     </applicationVisibilities>
     <fieldPermissions>
-        <editable>false</editable>
-        <field>Case.If_Not_Tested_please_explain__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
         <editable>true</editable>
         <field>Exception__c.Apex_Class__c</field>
         <readable>true</readable>
@@ -209,6 +204,10 @@
     </tabSettings>
     <tabSettings>
         <tab>User_Story__c</tab>
+        <visibility>Visible</visibility>
+    </tabSettings>
+    <tabSettings>
+        <tab>X360_View</tab>
         <visibility>Visible</visibility>
     </tabSettings>
 </PermissionSet>

@@ -33,7 +33,7 @@ export default class UserStoryList extends NavigationMixin(LightningElement) {
             if(response){
                 this.userStories = response;
             } else{
-                this.userStories = []
+                this.userStories = [];
                 showNoDataError(this);
             }
         }).catch(error =>{

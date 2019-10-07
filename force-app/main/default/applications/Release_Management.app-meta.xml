@@ -11,6 +11,7 @@
     <label>Release Management</label>
     <navType>Standard</navType>
     <tabs>standard-Feed</tabs>
+    <tabs>X360_View</tabs>
     <tabs>Release_Managment</tabs>
     <tabs>Sprint__c</tabs>
     <tabs>User_Story__c</tabs>

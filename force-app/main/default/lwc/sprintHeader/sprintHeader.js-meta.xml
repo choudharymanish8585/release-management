@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata" fqn="sprintHeader">
     <apiVersion>46.0</apiVersion>
+    <description>Highlights important details about a sprint</description>
+    <masterLabel>Sprint Header</masterLabel>
     <isExposed>true</isExposed>
     
     <targets>

@@ -1,0 +1,42 @@
+[
+    {
+        "sobject": "User",
+        "saveRefs": true,
+        "resolveRefs": false,
+        "files": [
+            "Users.json"
+        ]
+    },
+    {
+        "sobject": "Product_Tag__c",
+        "saveRefs": true,
+        "resolveRefs": false,
+        "files": [
+            "Product_Tag__cs.json"
+        ]
+    },
+    {
+        "sobject": "Sprint__c",
+        "saveRefs": true,
+        "resolveRefs": false,
+        "files": [
+            "Sprint__cs.json"
+        ]
+    },
+    {
+        "sobject": "User_Story__c",
+        "saveRefs": false,
+        "resolveRefs": true,
+        "files": [
+            "User_Story__cs.json"
+        ]
+    },
+    {
+        "sobject": "User_Story_Component__c",
+        "saveRefs": false,
+        "resolveRefs": true,
+        "files": [
+            "User_Story_Component__cs.json"
+        ]
+    }
+]

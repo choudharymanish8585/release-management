@@ -1,0 +1,18 @@
+{
+    "records": [
+        {
+            "attributes": {
+                "type": "Product_Tag__c",
+                "referenceId": "Product_Tag__cRef1"
+            },
+            "Name": "Monthly Patching"
+        },
+        {
+            "attributes": {
+                "type": "Product_Tag__c",
+                "referenceId": "Product_Tag__cRef2"
+            },
+            "Name": "Decomm Hub"
+        }
+    ]
+}

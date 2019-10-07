@@ -1,63 +1,23 @@
 <template>
-    <lightning-card title="Sprints" icon-name="custom:custom94">
-        <template if:false={openFilter}>
+    <template if:true={isInsideTab}>
+        <div class="container">
             <div class="slds-p-around_small">
-                <span class="slds-text-heading_label slds-float_left">
-                    {timespanLabel}
+                <span class="slds-text-heading_medium slds-float_left">
+                    Sprints
                 </span>
-                <span style="cursor: pointer;" onclick={openFilters}
-                    class="slds-text-heading_label slds-float_right">
-                    Filter Sprints &gt;&gt;
+                <span class="slds-float_right">
+                    <lightning-button label="New" onclick={createSprintHandler}></lightning-button>
                 </span>
             </div>
-            <div class="slds-p-around_small" style="width:100%; overflow-y:auto; max-height: 75vh;">
-                <ul class="slds-has-dividers_around-space">
-                    <template for:each={sprints} for:item="sprint">
-                        <li class="slds-item sprint-item" key={sprint.id}
-                            style={sprint.style}>
-                            <c-sprint-list-item 
-                                sprint-id={sprint.id}
-                                sprint-number={sprint.sprintNumber}
-                                title={sprint.title}
-                                description={sprint.description}
-                                release-date={sprint.releaseDate}
-                                type={sprint.type}
-                                status={sprint.status}
-                                base-url={baseUrl.data}
-                                owner-name={sprint.ownerName}></c-sprint-list-item>
-                        </li>
-                    </template>
-                </ul>
+            <div class="slds-m-top_medium">
+                <c-sprint-list-main list-style="width:100%; overflow-y:auto; max-height: 80vh;"></c-sprint-list-main>
             </div>
-            <lightning-button slot="actions" label="New" onclick={createSprintHandler} ></lightning-button>
-        </template>
-        <template if:true={openFilter}>
-            <div class="slds-p-around_small" style="width:100%; overflow:auto;">
-                <p class="slds-m-top_large slds-text-heading_label">Sprint Type</p>
-                <p class="slds-text-heading_medium">
-                    <lightning-radio-group name="sprintRadioGroup"
-                        label="Sprint Type"
-                        options={sprintTypes}
-                        value={selectedSprintType}
-                        variant="label-hidden"
-                        type="radio"
-                        onchange={sprintTypeChangeHandler}></lightning-radio-group>
-                </p>
-                <p class="slds-m-top_large slds-text-heading_label">Time filter</p>
-                <p class="slds-text-heading_medium">
-                    <lightning-radio-group name="timespanRadioGroup"
-                        label="Time Filter"
-                        options={timespans}
-                        value={selectedTimespan}
-                        variant="label-hidden"
-                        type="radio"
-                        onchange={timespanChangeHandler}></lightning-radio-group>
-                </p>
-                <p class="slds-m-top_large">
-                    <lightning-button label="Apply Filters" variant="brand" onclick={applyFilter} >
-                    </lightning-button>
-                </p>
-            </div>
-        </template>
-    </lightning-card>
+        </div>
+    </template>
+    <template if:false={isInsideTab}>
+        <lightning-card title="Sprints" icon-name="custom:custom94">
+            <lightning-button slot="actions" label="New" onclick={createSprintHandler}></lightning-button>
+            <c-sprint-list-main></c-sprint-list-main>
+        </lightning-card>
+    </template>
 </template>

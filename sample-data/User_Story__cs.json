@@ -1,0 +1,232 @@
+{
+    "records": [
+        {
+            "attributes": {
+                "type": "User_Story__c",
+                "referenceId": "User_Story__cRef1"
+            },
+            "Name": "Remove \"Host list too long. See attached hostlist.json\"",
+            "Dev_Owner__c" : "@UserRef1",
+            "Lead_Reviewer__c" : "@UserRef1",
+            "Peer_Reviewer__c" : "@UserRef1",
+            "SIT_Owner__c" : "@UserRef1",
+            "UAT_Owner__c" : "@UserRef1",
+            "Lead_Review__c": false,
+            "Patch_Notes__c": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+            "Peer_Review__c": false,
+            "Sprint__c": "@Sprint__cRef2",
+            "Status__c": "Delivered",
+            "Type__c": "Feature Request",
+            "Work_Item__c": "W-6523479"
+        },
+        {
+            "attributes": {
+                "type": "User_Story__c",
+                "referenceId": "User_Story__cRef2"
+            },
+            "Name": "Create a default entry in the Epic field on the Decomm Hub",
+            "Dev_Owner__c" : "@UserRef1",
+            "Lead_Reviewer__c" : "@UserRef1",
+            "Peer_Reviewer__c" : "@UserRef1",
+            "SIT_Owner__c" : "@UserRef1",
+            "UAT_Owner__c" : "@UserRef1",
+            "Lead_Review__c": false,
+            "Patch_Notes__c": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+            "Peer_Review__c": false,
+            "Sprint__c": "@Sprint__cRef2",
+            "Status__c": "New",
+            "Type__c": "Feature Request",
+            "Work_Item__c": "W-6510333"
+        },
+        {
+            "attributes": {
+                "type": "User_Story__c",
+                "referenceId": "User_Story__cRef3"
+            },
+            "Name": "Host list with both legacy and estates hosts cannot kick-off decomm",
+            "Dev_Owner__c" : "@UserRef1",
+            "Lead_Reviewer__c" : "@UserRef1",
+            "Peer_Reviewer__c" : "@UserRef1",
+            "SIT_Owner__c" : "@UserRef1",
+            "UAT_Owner__c" : "@UserRef1",
+            "Lead_Review__c": false,
+            "Patch_Notes__c": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+            "Peer_Review__c": false,
+            "Sprint__c": "@Sprint__cRef2",
+            "Status__c": "Dev Started",
+            "Type__c": "Bug",
+            "Work_Item__c": "W-6524498"
+        },
+        {
+            "attributes": {
+                "type": "User_Story__c",
+                "referenceId": "User_Story__cRef4"
+            },
+            "Name": "Decomm Hub to pre-populate additional change case fields",
+            "Dev_Owner__c" : "@UserRef1",
+            "Lead_Reviewer__c" : "@UserRef1",
+            "Peer_Reviewer__c" : "@UserRef1",
+            "SIT_Owner__c" : "@UserRef1",
+            "UAT_Owner__c" : "@UserRef1",
+            "Lead_Review__c": false,
+            "Patch_Notes__c": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+            "Peer_Review__c": false,
+            "Sprint__c": "@Sprint__cRef2",
+            "Status__c": "New",
+            "Type__c": "Feature Request",
+            "Work_Item__c": "W-6537158"
+        },
+        {
+            "attributes": {
+                "type": "User_Story__c",
+                "referenceId": "User_Story__cRef5"
+            },
+            "Name": "Adding support for 17.1 network hosts",
+            "Dev_Owner__c" : "@UserRef1",
+            "Lead_Reviewer__c" : "@UserRef1",
+            "Peer_Reviewer__c" : "@UserRef1",
+            "SIT_Owner__c" : "@UserRef1",
+            "UAT_Owner__c" : "@UserRef1",
+            "Lead_Review__c": false,
+            "Patch_Notes__c": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+            "Peer_Review__c": false,
+            "Sprint__c": "@Sprint__cRef3",
+            "Status__c": "New",
+            "Type__c": "Feature Request",
+            "Work_Item__c": "W-6126039"
+        },
+        {
+            "attributes": {
+                "type": "User_Story__c",
+                "referenceId": "User_Story__cRef6"
+            },
+            "Name": "Show a count of how many hosts are found after \"Run Query\"",
+            "Dev_Owner__c" : "@UserRef1",
+            "Lead_Reviewer__c" : "@UserRef1",
+            "Peer_Reviewer__c" : "@UserRef1",
+            "SIT_Owner__c" : "@UserRef1",
+            "UAT_Owner__c" : "@UserRef1",
+            "Lead_Review__c": false,
+            "Patch_Notes__c": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+            "Peer_Review__c": false,
+            "Sprint__c": "@Sprint__cRef7",
+            "Status__c": "Dev Started",
+            "Type__c": "Feature Request",
+            "Work_Item__c": "W-6418853"
+        },
+        {
+            "attributes": {
+                "type": "User_Story__c",
+                "referenceId": "User_Story__cRef7"
+            },
+            "Name": "Update Kanban Phase Names",
+            "Dev_Owner__c" : "@UserRef1",
+            "Lead_Reviewer__c" : "@UserRef1",
+            "Peer_Reviewer__c" : "@UserRef1",
+            "SIT_Owner__c" : "@UserRef1",
+            "UAT_Owner__c" : "@UserRef1",
+            "Lead_Review__c": false,
+            "Patch_Notes__c": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+            "Peer_Review__c": false,
+            "Sprint__c": "@Sprint__cRef7",
+            "Status__c": "New",
+            "Type__c": "Feature Request",
+            "Work_Item__c": "W-6428341"
+        },
+        {
+            "attributes": {
+                "type": "User_Story__c",
+                "referenceId": "User_Story__cRef8"
+            },
+            "Name": "Add workflow to include repurpose (not just decomm)",
+            "Dev_Owner__c" : "@UserRef1",
+            "Lead_Reviewer__c" : "@UserRef1",
+            "Peer_Reviewer__c" : "@UserRef1",
+            "SIT_Owner__c" : "@UserRef1",
+            "UAT_Owner__c" : "@UserRef1",
+            "Lead_Review__c": false,
+            "Patch_Notes__c": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+            "Peer_Review__c": false,
+            "Sprint__c": "@Sprint__cRef7",
+            "Status__c": "New",
+            "Type__c": "Feature Request",
+            "Work_Item__c": "W-6425085"
+        },
+        {
+            "attributes": {
+                "type": "User_Story__c",
+                "referenceId": "User_Story__cRef9"
+            },
+            "Name": "Add \"Faulty Part\" pick list to the case creation options",
+            "Dev_Owner__c" : "@UserRef1",
+            "Lead_Reviewer__c" : "@UserRef1",
+            "Peer_Reviewer__c" : "@UserRef1",
+            "SIT_Owner__c" : "@UserRef1",
+            "UAT_Owner__c" : "@UserRef1",
+            "Lead_Review__c": false,
+            "Patch_Notes__c": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+            "Peer_Review__c": false,
+            "Sprint__c": "@Sprint__cRef8",
+            "Status__c": "QA Started",
+            "Type__c": "Feature Request",
+            "Work_Item__c": "W-6354046"
+        },
+        {
+            "attributes": {
+                "type": "User_Story__c",
+                "referenceId": "User_Story__cRef10"
+            },
+            "Name": "include days spent in kanban phase for hosts & user stories",
+            "Dev_Owner__c" : "@UserRef1",
+            "Lead_Reviewer__c" : "@UserRef1",
+            "Peer_Reviewer__c" : "@UserRef1",
+            "SIT_Owner__c" : "@UserRef1",
+            "UAT_Owner__c" : "@UserRef1",
+            "Lead_Review__c": false,
+            "Patch_Notes__c": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+            "Peer_Review__c": false,
+            "Sprint__c": "@Sprint__cRef8",
+            "Status__c": "New",
+            "Type__c": "Feature Request",
+            "Work_Item__c": "W-6319731"
+        },
+        {
+            "attributes": {
+                "type": "User_Story__c",
+                "referenceId": "User_Story__cRef11"
+            },
+            "Name": "Tech Asset not being attached on case creation",
+            "Dev_Owner__c" : "@UserRef1",
+            "Lead_Reviewer__c" : "@UserRef1",
+            "Peer_Reviewer__c" : "@UserRef1",
+            "SIT_Owner__c" : "@UserRef1",
+            "UAT_Owner__c" : "@UserRef1",
+            "Lead_Review__c": false,
+            "Patch_Notes__c": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+            "Peer_Review__c": false,
+            "Sprint__c": "@Sprint__cRef8",
+            "Status__c": "New",
+            "Type__c": "Bug",
+            "Work_Item__c": "W-6354169"
+        },
+        {
+            "attributes": {
+                "type": "User_Story__c",
+                "referenceId": "User_Story__cRef12"
+            },
+            "Name": "Add release link",
+            "Dev_Owner__c" : "@UserRef1",
+            "Lead_Reviewer__c" : "@UserRef1",
+            "Peer_Reviewer__c" : "@UserRef1",
+            "SIT_Owner__c" : "@UserRef1",
+            "UAT_Owner__c" : "@UserRef1",
+            "Lead_Review__c": false,
+            "Patch_Notes__c": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+            "Peer_Review__c": false,
+            "Sprint__c": "@Sprint__cRef8",
+            "Status__c": "QA Started",
+            "Type__c": "Bug",
+            "Work_Item__c": "W-6126039"
+        }
+    ]
+}

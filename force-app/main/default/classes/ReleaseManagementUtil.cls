@@ -51,6 +51,7 @@ public with sharing class ReleaseManagementUtil {
      * Max limit is 2000
      */
     public static List<SObject> getSprintById(String sprintId){
+        sprintId = String.escapeSingleQuotes(sprintId);
         try{
             String query = 'SELECT Id, ' +
                            'Name, ' +
@@ -92,6 +93,8 @@ public with sharing class ReleaseManagementUtil {
      * Max limit is 2000
      */
     public static List<SObject> getFilteredSprints(String type, String timespan){
+        type = String.escapeSingleQuotes(type);
+        timespan = String.escapeSingleQuotes(timespan);
         try{
             String query = 'SELECT Id, ' +
                            'Name, ' +
@@ -161,6 +164,7 @@ public with sharing class ReleaseManagementUtil {
      * @param sprintId
      */
     public static List<SObject> getReleaseNotes(String sprintId){
+        sprintId = String.escapeSingleQuotes(sprintId);
         try{
             String query = 'SELECT Id, ' +
                            'Name, ' +
@@ -205,6 +209,8 @@ public with sharing class ReleaseManagementUtil {
      * @param sprintId
      */
     public static List<SObject> getUserStoriesBySprint(String sprintId){
+        sprintId = String.escapeSingleQuotes(sprintId);
+
         try{
             String query = 'SELECT Id, ' +
                            'Name, ' +
@@ -257,6 +263,8 @@ public with sharing class ReleaseManagementUtil {
      * @param userStoryId
      */
     public static List<SObject> getComponentsByUserStory(String userStoryId){
+        userStoryId = String.escapeSingleQuotes(userStoryId);
+
         try{
             String query = 'SELECT Id, ' +
                            'Name, ' +

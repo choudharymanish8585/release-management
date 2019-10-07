@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata" fqn="sprintReleaseNotes">
     <apiVersion>46.0</apiVersion>
+    <description>Custom modal to show release notes of a sprint</description>
+    <masterLabel>Sprint Release Notes</masterLabel>
     <isExposed>false</isExposed>
 </LightningComponentBundle>

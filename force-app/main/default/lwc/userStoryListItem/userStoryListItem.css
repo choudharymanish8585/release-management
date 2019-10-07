@@ -1,0 +1,12 @@
+.detail-view{
+    transition: max-height 1s ease;
+    transform-origin:top;
+}
+.collapsed{
+    max-height: 0px;
+    overflow: hidden;
+}
+.expanded{
+    overflow: auto;
+    max-height: 500px;
+}

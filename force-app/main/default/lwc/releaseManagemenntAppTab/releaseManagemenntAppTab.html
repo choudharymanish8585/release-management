@@ -1,0 +1,23 @@
+<template>
+    <div class="container">
+        <lightning-layout>
+            <lightning-layout-item size="3">
+                <div class="slds-p-right_medium">
+                    <c-sprint-list is-inside-tab></c-sprint-list>
+                </div>
+            </lightning-layout-item>
+            <lightning-layout-item size="9">
+                <lightning-layout multiple-rows>
+                    <lightning-layout-item size="12">
+                        <div class="slds-p-bottom_large">
+                            <c-sprint-header></c-sprint-header>
+                        </div>
+                    </lightning-layout-item>
+                    <lightning-layout-item size="12">
+                        <c-user-story-list></c-user-story-list>
+                    </lightning-layout-item>
+                </lightning-layout>
+            </lightning-layout-item>
+        </lightning-layout>
+    </div>
+</template>
