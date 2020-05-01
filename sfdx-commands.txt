@@ -1,0 +1,2 @@
+//Script to run all tests
+sfdx force:apex:test:run -t SprinterUtilTest,SprintReleaseNotesControllerTest,ExceptionLoggerTest,PicklistPathControllerTest,SprintHeaderControllerTest,SprintListControllerTest,SprintReleaseNotesControllerTest,UserStoryListControllerTest,UserStoryListItemControllerTest --resultformat human --outputdir '.sfdx/tools/testresults/apex' -c

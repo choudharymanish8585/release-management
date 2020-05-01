@@ -24,6 +24,16 @@
                 <default>false</default>
                 <label>Blocked</label>
             </value>
+            <value>
+                <fullName>Cancelled</fullName>
+                <default>false</default>
+                <label>Cancelled</label>
+            </value>
+            <value>
+                <fullName>Postponed</fullName>
+                <default>false</default>
+                <label>Postponed</label>
+            </value>
         </valueSetDefinition>
     </valueSet>
 </CustomField>
