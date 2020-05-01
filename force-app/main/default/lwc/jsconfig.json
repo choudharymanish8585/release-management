@@ -18,8 +18,14 @@
             "c/sprintListItem": [
                 "sprintListItem/sprintListItem.js"
             ],
+            "c/sprintListMain": [
+                "sprintListMain/sprintListMain.js"
+            ],
             "c/sprintReleaseNotes": [
                 "sprintReleaseNotes/sprintReleaseNotes.js"
+            ],
+            "c/sprinterTab": [
+                "sprinterTab/sprinterTab.js"
             ],
             "c/userStoryList": [
                 "userStoryList/userStoryList.js"
@@ -29,15 +35,6 @@
             ],
             "c/utils": [
                 "utils/utils.js"
-            ],
-            "c/releaseManagemenntAppTab": [
-                "releaseManagemenntAppTab/releaseManagemenntAppTab.js"
-            ],
-            "c/sprintListMain": [
-                "sprintListMain/sprintListMain.js"
-            ],
-            "c/userStoryListMain": [
-                "userStoryListMain/userStoryListMain.js"
             ]
         }
     },

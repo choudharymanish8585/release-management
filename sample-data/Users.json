@@ -5,7 +5,15 @@
                 "type": "User",
                 "referenceId": "UserRef1"
             },
-            "Name": "Manish Choudhari"
+            "Username": "user",
+            "LastName": "Manish Choudhari",
+            "Email": "Manish Choudhari",
+            "Alias": "Manish Choudhari",
+            "TimeZoneSidKey": "Manish Choudhari",
+            "LocaleSidKey": "Manish Choudhari",
+            "EmailEncodingKey": "Manish Choudhari",
+            "ProfileId": "Manish Choudhari",
+            "LanguageLocaleKey": "Manish Choudhari"
         }
     ]
 }

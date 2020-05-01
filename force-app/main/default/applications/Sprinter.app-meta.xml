@@ -1,18 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomApplication xmlns="http://soap.sforce.com/2006/04/metadata">
     <brand>
-        <headerColor>#AED112</headerColor>
+        <headerColor>#0198C7</headerColor>
         <shouldOverrideOrgTheme>false</shouldOverrideOrgTheme>
     </brand>
     <formFactors>Small</formFactors>
     <formFactors>Large</formFactors>
     <isNavAutoTempTabsDisabled>false</isNavAutoTempTabsDisabled>
     <isNavPersonalizationDisabled>false</isNavPersonalizationDisabled>
-    <label>Release Management</label>
+    <label>Sprinter</label>
     <navType>Standard</navType>
-    <tabs>standard-Feed</tabs>
-    <tabs>X360_View</tabs>
-    <tabs>Release_Managment</tabs>
+    <tabs>Sprint_Console</tabs>
     <tabs>Sprint__c</tabs>
     <tabs>User_Story__c</tabs>
     <tabs>User_Story_Component__c</tabs>

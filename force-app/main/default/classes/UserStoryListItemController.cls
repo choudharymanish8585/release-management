@@ -1,7 +1,7 @@
 public with sharing class UserStoryListItemController {
     @AuraEnabled
-    public static List<ReleaseManagementUtil.UserStoryComponentWrapper> getComponentsByUserStory(String userStoryId){
-        return ReleaseManagementUtil.getComponentsByUserStoryWrapped(userStoryId);
+    public static List<SprinterUtil.UserStoryComponentWrapper> getComponentsByUserStory(String userStoryId){
+        return SprinterUtil.getComponentsByUserStoryWrapped(userStoryId);
     }
 
     @AuraEnabled
@@ -11,7 +11,7 @@ public with sharing class UserStoryListItemController {
             SObject userStory = sobjectType.newSObject();
             userStory.Id = userStoryId;
             userStory.put('Status__c', status);
-            return ReleaseManagementUtil.updateSObject(new List<SObject>{userStory});
+            return SprinterUtil.updateSObject(new List<SObject>{userStory});
         } catch(Exception e){
             ExceptionLogger.logException(e, UserStoryListController.class.getName(), true);
             return e.getMessage();

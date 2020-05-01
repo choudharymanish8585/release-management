@@ -5,7 +5,6 @@
                 "type": "Sprint__c",
                 "referenceId": "Sprint__cRef1"
             },
-            "Name": "Sprint-0006",
             "Description__c": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor i",
             "Title__c": "2017.06-r1",
             "Release_Date__c": "2017-06-08",
@@ -19,7 +18,6 @@
                 "type": "Sprint__c",
                 "referenceId": "Sprint__cRef2"
             },
-            "Name": "Sprint-0000",
             "Description__c": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor i",
             "Title__c": "2019.09-r1",
             "Release_Date__c": "2019-09-05",
@@ -33,7 +31,6 @@
                 "type": "Sprint__c",
                 "referenceId": "Sprint__cRef3"
             },
-            "Name": "Sprint-0003",
             "Description__c": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor i",
             "Title__c": "2019.09-r4",
             "Release_Date__c": "2019-09-26",
@@ -47,7 +44,6 @@
                 "type": "Sprint__c",
                 "referenceId": "Sprint__cRef4"
             },
-            "Name": "Sprint-0007",
             "Description__c": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor i",
             "Title__c": "2016.05-r1",
             "Release_Date__c": "2016-05-12",
@@ -61,7 +57,6 @@
                 "type": "Sprint__c",
                 "referenceId": "Sprint__cRef5"
             },
-            "Name": "Sprint-0004",
             "Description__c": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor i",
             "Title__c": "2019.07-r1",
             "Release_Date__c": "2019-07-11",
@@ -75,7 +70,6 @@
                 "type": "Sprint__c",
                 "referenceId": "Sprint__cRef6"
             },
-            "Name": "Sprint-0005",
             "Description__c": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor i",
             "Title__c": "2018-09-r1",
             "Release_Date__c": "2018-09-06",
@@ -89,7 +83,6 @@
                 "type": "Sprint__c",
                 "referenceId": "Sprint__cRef7"
             },
-            "Name": "Sprint-0001",
             "Description__c": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor i",
             "Title__c": "2019.09-r2",
             "Release_Date__c": "2019-09-12",
@@ -103,7 +96,6 @@
                 "type": "Sprint__c",
                 "referenceId": "Sprint__cRef8"
             },
-            "Name": "Sprint-0002",
             "Description__c": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor i",
             "Title__c": "2019.09-r3",
             "Release_Date__c": "2019-09-19",

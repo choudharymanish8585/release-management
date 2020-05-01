@@ -1,4 +1,4 @@
-public with sharing class ReleaseManagementUtil {
+public with sharing class SprinterUtil {
 
     /**
      * get org base url
@@ -31,7 +31,7 @@ public with sharing class ReleaseManagementUtil {
                            'LIMIT 2000';
             return Database.query(query);
         } catch(Exception e){
-            ExceptionLogger.logException(e, ReleaseManagementUtil.class.getName(), true);
+            ExceptionLogger.logException(e, SprinterUtil.class.getName(), true);
             return null;
         }
     }
@@ -41,8 +41,8 @@ public with sharing class ReleaseManagementUtil {
      * Max limit is 2000
      */
     public static List<SprintWrapper> getAllSprintsWrapped(){
-        List<SObject> sprintObjs =  ReleaseManagementUtil.getAllSprints();
-        return ReleaseManagementUtil.wrapSprints(sprintObjs);
+        List<SObject> sprintObjs =  SprinterUtil.getAllSprints();
+        return SprinterUtil.wrapSprints(sprintObjs);
     }
 
     /**
@@ -71,7 +71,7 @@ public with sharing class ReleaseManagementUtil {
                            'LIMIT 2000';
             return Database.query(query);
         } catch(Exception e){
-            ExceptionLogger.logException(e, ReleaseManagementUtil.class.getName(), true);
+            ExceptionLogger.logException(e, SprinterUtil.class.getName(), true);
             return null;
         }
     }
@@ -82,8 +82,8 @@ public with sharing class ReleaseManagementUtil {
      * Max limit is 2000
      */
     public static List<SprintWrapper> getSprintByIdWrapped(String sprintId){
-        List<SObject> sprintObjs =  ReleaseManagementUtil.getSprintById(sprintId);
-        return ReleaseManagementUtil.wrapSprints(sprintObjs);
+        List<SObject> sprintObjs =  SprinterUtil.getSprintById(sprintId);
+        return SprinterUtil.wrapSprints(sprintObjs);
     }
 
     /**
@@ -143,7 +143,7 @@ public with sharing class ReleaseManagementUtil {
             }
             return Database.query(query);
         } catch(Exception e){
-            ExceptionLogger.logException(e, ReleaseManagementUtil.class.getName(), true);
+            ExceptionLogger.logException(e, SprinterUtil.class.getName(), true);
             return null;
         }
     }
@@ -155,8 +155,8 @@ public with sharing class ReleaseManagementUtil {
      * Max limit is 2000
      */
     public static List<SprintWrapper> getFilteredSprintsWrapped(String type, String timespan){
-        List<SObject> sprintObjs =  ReleaseManagementUtil.getFilteredSprints(type, timespan);
-        return ReleaseManagementUtil.wrapSprints(sprintObjs);
+        List<SObject> sprintObjs =  SprinterUtil.getFilteredSprints(type, timespan);
+        return SprinterUtil.wrapSprints(sprintObjs);
     }
 
     /**
@@ -177,7 +177,7 @@ public with sharing class ReleaseManagementUtil {
                            'WHERE Sprint__c =: sprintId';
             return Database.query(query);
         } catch(Exception e){
-            ExceptionLogger.logException(e, ReleaseManagementUtil.class.getName(), true);
+            ExceptionLogger.logException(e, SprinterUtil.class.getName(), true);
             return null;
         }
     }
@@ -187,11 +187,11 @@ public with sharing class ReleaseManagementUtil {
      * @param sprintId
      */
     public static ReleaseNotes getReleaseNotesWrapped(String sprintId){
-        List<SObject> userStoryObjs = ReleaseManagementUtil.getReleaseNotes(sprintId);
-        List<UserStoryWrapper> userStories = ReleaseManagementUtil.wrapUserStory(userStoryObjs);
+        List<SObject> userStoryObjs = SprinterUtil.getReleaseNotes(sprintId);
+        List<UserStoryWrapper> userStories = SprinterUtil.wrapUserStory(userStoryObjs);
 
-        List<SObject> sprintObjs =  ReleaseManagementUtil.getSprintById(sprintId);
-        List<SprintWrapper> sprints = ReleaseManagementUtil.wrapSprints(sprintObjs);
+        List<SObject> sprintObjs =  SprinterUtil.getSprintById(sprintId);
+        List<SprintWrapper> sprints = SprinterUtil.wrapSprints(sprintObjs);
 
         ReleaseNotes releaseNotes = new ReleaseNotes();
         if(userStories != null &&  userStories.size() > 0){
@@ -239,7 +239,7 @@ public with sharing class ReleaseManagementUtil {
                            'WHERE Sprint__c =: sprintId';
             return Database.query(query);
         } catch(Exception e){
-            ExceptionLogger.logException(e, ReleaseManagementUtil.class.getName(), true);
+            ExceptionLogger.logException(e, SprinterUtil.class.getName(), true);
             return null;
         }
     }
@@ -249,8 +249,8 @@ public with sharing class ReleaseManagementUtil {
      * @param sprintId
      */
     public static List<UserStoryWrapper> getUserStoriesBySprintWrapped(String sprintId){
-        List<SObject> userStoryObjs = ReleaseManagementUtil.getUserStoriesBySprint(sprintId);
-        List<UserStoryWrapper> userStories = ReleaseManagementUtil.wrapUserStory(userStoryObjs);
+        List<SObject> userStoryObjs = SprinterUtil.getUserStoriesBySprint(sprintId);
+        List<UserStoryWrapper> userStories = SprinterUtil.wrapUserStory(userStoryObjs);
 
         if(userStories != null &&  userStories.size() > 0){
             return userStories;
@@ -277,7 +277,7 @@ public with sharing class ReleaseManagementUtil {
                            'WHERE User_Story__c =: userStoryId';
             return Database.query(query);
         } catch(Exception e){
-            ExceptionLogger.logException(e, ReleaseManagementUtil.class.getName(), true);
+            ExceptionLogger.logException(e, SprinterUtil.class.getName(), true);
             return null;
         }
     }
@@ -287,8 +287,8 @@ public with sharing class ReleaseManagementUtil {
      * @param userStoryId
      */
     public static List<UserStoryComponentWrapper> getComponentsByUserStoryWrapped(String userStoryId){
-        List<SObject> userStoryCompObjs = ReleaseManagementUtil.getComponentsByUserStory(userStoryId);
-        List<UserStoryComponentWrapper> userStoryComponents = ReleaseManagementUtil.wrapUserStoryComponent(userStoryCompObjs);
+        List<SObject> userStoryCompObjs = SprinterUtil.getComponentsByUserStory(userStoryId);
+        List<UserStoryComponentWrapper> userStoryComponents = SprinterUtil.wrapUserStoryComponent(userStoryCompObjs);
 
         if(userStoryComponents != null &&  userStoryComponents.size() > 0){
             return userStoryComponents;
@@ -388,7 +388,7 @@ public with sharing class ReleaseManagementUtil {
             update sObjects;
             return 'success';
         } catch(Exception e){
-            ExceptionLogger.logException(e, ReleaseManagementUtil.class.getName(), true);
+            ExceptionLogger.logException(e, SprinterUtil.class.getName(), true);
             Database.rollback(sp);
             return e.getMessage();
         }

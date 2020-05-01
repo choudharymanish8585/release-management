@@ -1,6 +1,6 @@
 import { LightningElement, api, track, wire } from 'lwc';
 import getUserStoriesBySprint from '@salesforce/apex/UserStoryListController.getUserStoriesBySprint';
-import getBaseUrl from '@salesforce/apex/ReleaseManagementUtil.getBaseUrl';
+import getBaseUrl from '@salesforce/apex/SprinterUtil.getBaseUrl';
 import { CurrentPageReference, NavigationMixin } from 'lightning/navigation';
 import {showError, showNoDataError} from 'c/utils';
 import { registerListener, unregisterAllListeners } from 'c/pubsub';

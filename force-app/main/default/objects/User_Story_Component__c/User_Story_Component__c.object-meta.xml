@@ -160,7 +160,7 @@
     </nameField>
     <pluralLabel>User Story Components</pluralLabel>
     <searchLayouts/>
-    <sharingModel>ReadWrite</sharingModel>
+    <sharingModel>ControlledByParent</sharingModel>
     <startsWith>Vowel</startsWith>
     <visibility>Public</visibility>
 </CustomObject>

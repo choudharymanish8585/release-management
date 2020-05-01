@@ -5,7 +5,6 @@
                 "type": "User_Story_Component__c",
                 "referenceId": "User_Story_Component__cRef1"
             },
-            "Name": "USC-0011",
             "Api_Name__c": "PatchBundle_Lightning",
             "Change_Type__c": "Update",
             "Metadata_Type__c": "ApexPage",
@@ -16,7 +15,6 @@
                 "type": "User_Story_Component__c",
                 "referenceId": "User_Story_Component__cRef2"
             },
-            "Name": "USC-0010",
             "Api_Name__c": "PatchBundleExtension",
             "Change_Type__c": "Update",
             "Metadata_Type__c": "ApexClass",
@@ -27,7 +25,6 @@
                 "type": "User_Story_Component__c",
                 "referenceId": "User_Story_Component__cRef3"
             },
-            "Name": "USC-0000",
             "Api_Name__c": "DecommHubUtil",
             "Change_Type__c": "New",
             "Metadata_Type__c": "ApexClass",
@@ -38,7 +35,6 @@
                 "type": "User_Story_Component__c",
                 "referenceId": "User_Story_Component__cRef4"
             },
-            "Name": "USC-0001",
             "Api_Name__c": "DecommHubController",
             "Change_Type__c": "Update",
             "Metadata_Type__c": "ApexClass",
@@ -49,7 +45,6 @@
                 "type": "User_Story_Component__c",
                 "referenceId": "User_Story_Component__cRef5"
             },
-            "Name": "USC-0002",
             "Api_Name__c": "DecommHubViewRecordController",
             "Change_Type__c": "Update",
             "Metadata_Type__c": "ApexClass",
@@ -60,7 +55,6 @@
                 "type": "User_Story_Component__c",
                 "referenceId": "User_Story_Component__cRef6"
             },
-            "Name": "USC-0004",
             "Api_Name__c": "DecommHubViewRecordItem",
             "Change_Type__c": "New",
             "Metadata_Type__c": "AuraDefinitionBundle",
@@ -71,7 +65,6 @@
                 "type": "User_Story_Component__c",
                 "referenceId": "User_Story_Component__cRef7"
             },
-            "Name": "USC-0006",
             "Api_Name__c": "decommDashboardAllHosts",
             "Change_Type__c": "New",
             "Metadata_Type__c": "LightningWebComponentBundle",
@@ -82,7 +75,6 @@
                 "type": "User_Story_Component__c",
                 "referenceId": "User_Story_Component__cRef8"
             },
-            "Name": "USC-0005",
             "Api_Name__c": "DecommHubGoBackEvent",
             "Change_Type__c": "Delete",
             "Metadata_Type__c": "AuraDefinitionBundle",
@@ -93,7 +85,6 @@
                 "type": "User_Story_Component__c",
                 "referenceId": "User_Story_Component__cRef9"
             },
-            "Name": "USC-0003",
             "Api_Name__c": "DecommHub",
             "Change_Type__c": "Update",
             "Metadata_Type__c": "AuraDefinitionBundle",
@@ -104,7 +95,6 @@
                 "type": "User_Story_Component__c",
                 "referenceId": "User_Story_Component__cRef10"
             },
-            "Name": "USC-0009",
             "Api_Name__c": "DecommDashboardHostPPPPControllerTest",
             "Change_Type__c": "New",
             "Metadata_Type__c": "ApexClass",
@@ -115,7 +105,6 @@
                 "type": "User_Story_Component__c",
                 "referenceId": "User_Story_Component__cRef11"
             },
-            "Name": "USC-0008",
             "Api_Name__c": "decommDashboardFetchHost",
             "Change_Type__c": "Update",
             "Metadata_Type__c": "LightningComponentBundle",
@@ -126,7 +115,6 @@
                 "type": "User_Story_Component__c",
                 "referenceId": "User_Story_Component__cRef12"
             },
-            "Name": "USC-0007",
             "Api_Name__c": "decommDashboardAllHosts",
             "Change_Type__c": "New",
             "Metadata_Type__c": "LightningComponentBundle",
@@ -137,7 +125,6 @@
                 "type": "User_Story_Component__c",
                 "referenceId": "User_Story_Component__cRef13"
             },
-            "Name": "USC-0013",
             "Api_Name__c": "decommDashboardFetchHost",
             "Change_Type__c": "Update",
             "Metadata_Type__c": "AuraDefinitionBundle",
@@ -148,7 +135,6 @@
                 "type": "User_Story_Component__c",
                 "referenceId": "User_Story_Component__cRef14"
             },
-            "Name": "USC-0012",
             "Api_Name__c": "DecommDashboardFetchHostController",
             "Change_Type__c": "Update",
             "Metadata_Type__c": "AuraDefinitionBundle",
@@ -159,7 +145,6 @@
                 "type": "User_Story_Component__c",
                 "referenceId": "User_Story_Component__cRef15"
             },
-            "Name": "USC-0014",
             "Api_Name__c": "DecommDashboardKanabanStatusMapping__mdt",
             "Change_Type__c": "New",
             "Metadata_Type__c": "CustomMetadata",
@@ -170,7 +155,6 @@
                 "type": "User_Story_Component__c",
                 "referenceId": "User_Story_Component__cRef16"
             },
-            "Name": "USC-0016",
             "Api_Name__c": "HostViewer",
             "Change_Type__c": "Update",
             "Metadata_Type__c": "ApexPage",
@@ -181,7 +165,6 @@
                 "type": "User_Story_Component__c",
                 "referenceId": "User_Story_Component__cRef17"
             },
-            "Name": "USC-0015",
             "Api_Name__c": "PatchCheckerController",
             "Change_Type__c": "Update",
             "Metadata_Type__c": "ApexClass",

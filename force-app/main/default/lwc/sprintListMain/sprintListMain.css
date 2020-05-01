@@ -1,0 +1,7 @@
+.sprint-item {
+    cursor: pointer;
+}
+
+.sprint-item:hover{
+    background: whitesmoke;
+}

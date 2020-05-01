@@ -1,6 +1,6 @@
 import { LightningElement, track, wire, api } from 'lwc';
 import getFilteredSprints from '@salesforce/apex/SprintListController.getFilteredSprints';
-import getBaseUrl from '@salesforce/apex/ReleaseManagementUtil.getBaseUrl';
+import getBaseUrl from '@salesforce/apex/SprinterUtil.getBaseUrl';
 import {showError, showNoDataError} from 'c/utils';
 
 export default class SprintListMain extends LightningElement {

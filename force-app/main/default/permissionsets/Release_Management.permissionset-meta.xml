@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
     <applicationVisibilities>
-        <application>Release_Management</application>
+        <application>Sprinter</application>
         <visible>true</visible>
     </applicationVisibilities>
     <fieldPermissions>
@@ -195,6 +195,10 @@
         <visibility>Visible</visibility>
     </tabSettings>
     <tabSettings>
+        <tab>Sprint_Console</tab>
+        <visibility>Visible</visibility>
+    </tabSettings>
+    <tabSettings>
         <tab>Sprint__c</tab>
         <visibility>Visible</visibility>
     </tabSettings>
@@ -204,10 +208,6 @@
     </tabSettings>
     <tabSettings>
         <tab>User_Story__c</tab>
-        <visibility>Visible</visibility>
-    </tabSettings>
-    <tabSettings>
-        <tab>X360_View</tab>
         <visibility>Visible</visibility>
     </tabSettings>
 </PermissionSet>

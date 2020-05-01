@@ -1,2 +1,2 @@
-# release-management
-Release Managment App
+# sprinter-app
+Sprinter App

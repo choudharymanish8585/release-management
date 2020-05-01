@@ -1,12 +1,12 @@
 {
-  "orgName": "SFDCFacts RMS",
+  "orgName": "Sprinter",
   "edition": "Developer",
   "hasSampleData": true,
   "adminEmail": "choudharymanish8585@gmail.com",
-  "features": [],
+  "features": ["DebugApex"],
   "settings": {
-    "orgPreferenceSettings": {
-      "s1DesktopEnabled": true
+    "lightningExperienceSettings": {
+      "enableS1DesktopEnabled": true
     }
   }
 }

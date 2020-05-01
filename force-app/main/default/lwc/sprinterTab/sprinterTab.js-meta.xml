@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata" fqn="releaseManagemenntAppTab">
     <apiVersion>46.0</apiVersion>
-    <description>Main component for release management app.</description>
-    <masterLabel>Release Management</masterLabel>
+    <description>Main component for sprinter app.</description>
+    <masterLabel>Sprinter Tab</masterLabel>
     <isExposed>true</isExposed>
-    <!-- <targets>
+    <targets>
         <target>lightning__Tab</target>
-    </targets> -->
+    </targets>
 </LightningComponentBundle>
