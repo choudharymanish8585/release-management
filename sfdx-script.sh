@@ -37,3 +37,7 @@ sfdx force:org:open
 # sfdx force:package:create --name Sprint360 --description "Sprint360 Version 1" --packagetype Unlocked --path force-app --nonamespace --targetdevhubusername RMDevHub
 # Package version create (withou installation key)
 # sfdx force:package:version:create -p Sprint360 -d force-app --wait 10 -v RMDevHub -x
+# Release package version (for production)
+# sfdx force:package:version:promote -p Sprint360@0.1.0-1 -v RMDevHub
+# Install package version
+# sfdx force:package:install --wait 10 --publishwait 10 --package Sprint360@0.1.0-1 -r -u InfraEngDevHub

@@ -12,6 +12,7 @@
     "sfdcLoginUrl": "https://login.salesforce.com",
     "sourceApiVersion": "48.0",
     "packageAliases": {
-        "Sprint360": "0Ho2v000000GmrKCAS"
+        "Sprint360": "0Ho2v000000GmrKCAS",
+        "Sprint360@0.1.0-1": "04t2v000007GOU5AAO"
     }
 }
