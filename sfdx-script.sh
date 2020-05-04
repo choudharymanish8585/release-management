@@ -23,3 +23,8 @@ sfdx force:data:tree:import --plan sample-data/import-plan.json
 # Open Scratch Org
 printf "\nSTEP 5 : Open Scratch Org\n"
 sfdx force:org:open
+
+# Package Create
+# sfdx force:package:create --name Sprint360 --description "Sprint360 Version 1" --packagetype Unlocked --path force-app --nonamespace --targetdevhubusername RMDevHub
+# Package version create (withou installation key)
+# sfdx force:package:version:create -p Sprint360 -d force-app --wait 10 -v RMDevHub -x
