@@ -1,5 +1,9 @@
-## Script starts from here
-
+## Enviroment Variables
+export SFARM_DEV_HUB_USER_NAME=choudharymanish8585@wise-moose-8y7qh1.com
+export SFARM_DEV_HUB_CONNECTED_APP_CONSUMER_KEY=3MVG97quAmFZJfVxXo.ku_vIJo.uqQ5.U_dKFSu6gxUg1GHnVA4SYmf4g1Z8KlMlQmXmbLb4BeIBDZ2ULm1fD
+export SERVER_KEY_LOCATION="~/assets/sfarm/server.key"
+# Moving into directory
+cd "$1"
 # Create New Directory
 printf "\nSTEP 1 : Create new directory\n"
 mkdir $(date +'%Y%m%d')
@@ -11,7 +15,8 @@ git clone https://github.com/choudharymanish8585/release-management.git
 cd release-management
 
 # Authorize Dev Hub
-# Create Connected App and Authorize automatically
+printf "\nSTEP 3 : Authorize dev hub\n"
+sfdx force:auth:jwt:grant --clientid $SFARM_DEV_HUB_CONNECTED_APP_CONSUMER_KEY --jwtkeyfile $SERVER_KEY_LOCATION  --username $SFARM_DEV_HUB_USER_NAME --setdefaultdevhubusername
 
 # Create Scratch Org with current date as alias 
 printf "\nSTEP 3 : Creating scratch org\n"

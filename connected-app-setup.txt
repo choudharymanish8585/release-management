@@ -1,0 +1,70 @@
+Install OpenSSl
+
+1. Run the following command in your local environment to see whether you already have OpenSSL installed:
+which openssl
+
+2. If above command does not show openssl path, then install openssl using brew
+brew install openssl
+
+3. Create a new folder named “assets” to store server key files. Move to assets folder and run below commands to generate keys
+openssl genrsa -des3 -passout pass:sfarm -out server.pass.key 2048
+openssl rsa -passin pass:sfarm -in server.pass.key -out server.key
+
+Run below command to generate ssl certificate
+openssl req -new -key server.key -out server.csr
+Fill up information all information except password. _*Leave the password as blank (just hit enter)*_
+
+Create self-signed digital certificate
+openssl x509 -req -sha256 -days 365 -in server.csr -signkey server.key -out server.crt
+
+
+Create Connected App
+
+1. Enable Dev Hub
+    1. Setup > Dev Hub > Enable Dev Hub
+2. Create a Connected App
+    1. Basic Information
+        1. Setup > App Manager > New Connected App
+        2. Connected App Name: MSED SFDX
+        3. API Name: MSED_SFDX
+        4. Contact Email: Enter your email
+    2. OAuth Settings
+        1. Configure the following for the API (Enable OAuth Settings) section.
+        2. Check the *Enable OAuth Settings* box
+        3. *Callback URL:* http://localhost:1717/OauthRedirect
+        4. Check ‘Use Digital Signatures’
+        5. Upload *“server.crt" from "assets" folder*
+        6. Add these OAuth scopes:
+            1. Access and manage your data (api)
+            2. Perform requests on your behalf at any time (refresh_token, offline_access)
+            3. Provide access to your data via the Web (web)
+        7. Check the *Require Secret for Web Server Flow* box.
+    3. Save And Continue
+    4. Edit Policies
+        1. Click on Manage Button
+        2. Click on Edit Policies
+        3. In the OAuth Policies section, select *Admin approved users are pre-authorized* for Permitted Users. If you get a message saying that once this option is selected, all previous users will have their access revoked, that’s okay. Go ahead and click *OK*.
+        4. Click *Save* to return to the setup page for your connected app.
+        5. Scroll down to the Profiles section and click *Manage Profiles*
+        6. Select the profiles and permission sets that are pre-authorized to use this connected app. Add *Standard User* and *System Administrator*.
+
+
+
+
+Login in your Dev Hub org using Web Login Flow
+
+*Before start using jwt login flow, login in your dev hub org using web login flow one last time.*
+In VSCode Terminal, enter the following command sfdx force:auth:web:login -d then login to *Dev Hub org* in the window prompted
+
+
+Check JWT Login Flow
+
+1. From the command line, naviga te to the project directory, if you’re not there already. Or you can use VS Code terminal as well.
+2. Enter this command. Make sure you replace <INSERT CONSUMER KEY HERE> with your connected app’s Consumer Key and <INSERT YOUR USERNAME HERE> with your Dev Hub username. Also replace <INSERT SERVER KEY LOCATION> with the location of your *server.key* file from *assets* folder.
+
+sfdx force:auth:jwt:grant --clientid <INSERT CONSUMER KEY HERE> --jwtkeyfile  <INSERT SERVER KEY LOCATION> --username <INSERT YOUR USERNAME HERE> --setdefaultdevhubusername
+
+You should receive an output similar to this:
+Successfully authorized alliance@playful-moose-i6zj2o.com with org
+ID 00D1U000001BFsEUAW
+
