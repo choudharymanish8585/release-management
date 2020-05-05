@@ -6,9 +6,10 @@ public with sharing class PicklistPathController {
   ) {
     try {
       //describe sObject and get metadata property
-      Schema.DescribeSobjectResult[] sObjects = Schema.describeSObjects(
-        new List<String>{ sObjectName, 'sfarm__' + sObjectName }
-      );
+      Schema.DescribeSobjectResult[] sObjects = getSObject(sObjectName);
+      if (sObjects == null) {
+        sObjects = getSObject('sfarm__' + sObjectName);
+      }
       if (sObjects != null && sObjects.size() > 0) {
         //get a map of sobject fields for the passed sobject
         Map<String, Schema.SObjectField> fieldMap = sObjects[0].fields.getMap();
@@ -45,6 +46,13 @@ public with sharing class PicklistPathController {
     }
   }
 
+  public static Schema.DescribeSobjectResult[] getSObject(String sObjectName) {
+    try {
+      return Schema.describeSObjects(new List<String>{ sObjectName });
+    } catch (Exception e) {
+      return null;
+    }
+  }
   public class PicklistItem {
     @AuraEnabled
     public String label;
