@@ -7,16 +7,22 @@ public with sharing class PicklistPathController {
     try {
       //describe sObject and get metadata property
       Schema.DescribeSobjectResult[] sObjects = Schema.describeSObjects(
-        new List<String>{ sObjectName }
+        new List<String>{ sObjectName, 'sfarm__' + sObjectName }
       );
       if (sObjects != null && sObjects.size() > 0) {
         //get a map of sobject fields for the passed sobject
         Map<String, Schema.SObjectField> fieldMap = sObjects[0].fields.getMap();
+        //get picklist field
+        Schema.SObjectField picklistField = fieldMap.get(picklistFieldName);
+        if (picklistField == null) {
+          picklistField = fieldMap.get('sfarm__' + picklistFieldName);
+        }
+
+        if (picklistField == null) {
+          return null;
+        }
         //get the list of picklist values using the picklist field name
-        List<Schema.PicklistEntry> picklistValues = fieldMap.get(
-            picklistFieldName
-          )
-          .getDescribe()
+        List<Schema.PicklistEntry> picklistValues = picklistField.getDescribe()
           .getPickListValues();
 
         List<PicklistItem> picklistItems = new List<PicklistItem>();
