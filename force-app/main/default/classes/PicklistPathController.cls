@@ -53,6 +53,7 @@ public with sharing class PicklistPathController {
       return null;
     }
   }
+
   public class PicklistItem {
     @AuraEnabled
     public String label;

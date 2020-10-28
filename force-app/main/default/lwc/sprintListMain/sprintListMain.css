@@ -2,6 +2,29 @@
     cursor: pointer;
 }
 
-.sprint-item:hover{
+.sprint-item:hover {
     background: whitesmoke;
+}
+
+.sprint-item {
+    width: 100%;
+    overflow-y: auto;
+    max-height: 75vh;
+}
+
+.emergency-sprint {
+    border-bottom: 2px solid tomato;
+}
+
+.beta-sprint {
+    border-bottom: 2px solid blueviolet;
+}
+
+.prod-sprint {
+    border-bottom: 2px solid yellowgreen;
+}
+
+.filter-container {
+    width: 100%;
+    overflow: auto;
 }

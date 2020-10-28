@@ -1,24 +1,24 @@
 [
   {
-    "sobject": "Product_Tag__c",
+    "sobject": "sfarm__Product_Tag__c",
     "saveRefs": true,
     "resolveRefs": false,
     "files": ["Product_Tag__cs.json"]
   },
   {
-    "sobject": "Sprint__c",
+    "sobject": "sfarm__Sprint__c",
     "saveRefs": true,
     "resolveRefs": false,
     "files": ["Sprint__cs.json"]
   },
   {
-    "sobject": "User_Story__c",
+    "sobject": "sfarm__User_Story__c",
     "saveRefs": true,
     "resolveRefs": true,
     "files": ["User_Story__cs.json"]
   },
   {
-    "sobject": "User_Story_Component__c",
+    "sobject": "sfarm__User_Story_Component__c",
     "saveRefs": false,
     "resolveRefs": true,
     "files": ["User_Story_Component__cs.json"]

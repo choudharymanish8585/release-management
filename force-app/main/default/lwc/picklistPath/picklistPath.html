@@ -1,22 +1,20 @@
 <template>
     <template if:true={showPath}>
         <div class="slds-path">
-            <div class="slds-grid slds-path__track">
+            <div class="slds-grid slds-path__track slds-has-overflow">
                 <div class="slds-grid slds-path__scroller-container">
                     <div class="slds-path__scroller" role="application">
                         <div class="slds-path__scroller_inner">
                             <ul class="slds-path__nav" role="listbox" aria-orientation="horizontal">
                                 <template for:each={picklistItems} for:item="picklistItem">
-                                    <li class={picklistItem.class} 
-                                        role="presentation" 
-                                        key={picklistItem.value} 
-                                        data-value={picklistItem.value}
-                                        data-label={picklistItem.label}
+                                    <li class={picklistItem.class} role="presentation" key={picklistItem.value}
+                                        data-value={picklistItem.value} data-label={picklistItem.label}
                                         onclick={pathClickHandler}>
                                         <a aria-selected="false" class="slds-path__link" href="javascript:void(0);"
                                             role="option" tabindex="-1">
                                             <span class="slds-path__stage">
-                                                <lightning-icon size="x-small" icon-name="utility:check" variant="inverse"></lightning-icon>
+                                                <lightning-icon size="x-small" icon-name="utility:check"
+                                                    variant="inverse"></lightning-icon>
                                                 <span class="slds-assistive-text">{picklistItem.label}</span>
                                             </span>
                                             <span class="slds-path__title">{picklistItem.label}</span>
@@ -24,12 +22,21 @@
                                     </li>
                                 </template>
                             </ul>
+                            <div class="slds-path__scroll-controls">
+                                <lightning-button-icon icon-name="utility:chevronleft" title="Scroll Left"
+                                    onclick={scrollLeft}>
+                                </lightning-button-icon>
+                                <lightning-button-icon icon-name="utility:chevronright" title="Scroll Right"
+                                    onclick={scrollRight}>
+                                </lightning-button-icon>
+                            </div>
                         </div>
                     </div>
                 </div>
                 <div class="slds-grid slds-path__action">
                     <span class="slds-path__stage-name">Stage: Unqualified</span>
-                    <lightning-button icon-name="utility:check" icon-position="left" variant="brand" label="Mark Complete" onclick={pathCompleteHandler}></lightning-button>
+                    <lightning-button icon-name="utility:check" icon-position="left" variant="brand"
+                        label="Mark Complete" onclick={pathCompleteHandler}></lightning-button>
                 </div>
             </div>
         </div>

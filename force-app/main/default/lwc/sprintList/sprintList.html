@@ -6,18 +6,25 @@
                     Sprints
                 </span>
                 <span class="slds-float_right">
-                    <lightning-button label="New" onclick={createSprintHandler}></lightning-button>
+                    <lightning-button label="New Sprint" onclick={createSprintHandler}></lightning-button>
                 </span>
             </div>
             <div class="slds-m-top_medium">
-                <c-sprint-list-main list-style="width:100%; overflow-y:auto; max-height: 80vh;"></c-sprint-list-main>
+                <c-sprint-list-main list-class="sprint-item"></c-sprint-list-main>
             </div>
         </div>
     </template>
     <template if:false={isInsideTab}>
         <lightning-card title="Sprints" icon-name="custom:custom94">
-            <lightning-button slot="actions" label="New" onclick={createSprintHandler}></lightning-button>
+            <lightning-button slot="actions" label="New Sprint" onclick={createSprintHandler}></lightning-button>
             <c-sprint-list-main></c-sprint-list-main>
         </lightning-card>
+    </template>
+    <template if:true={isModalOpen}>
+        <c-overlay-modal modal-title='New Sprint' hide-success-button hide-cancel-button onclose={closeNewSprintModal}>
+            <c-create-record-form object-api-name="sfarm__Sprint__c" slot="body" onsuccess={sprintSuccessHandler}
+                oncancel={closeNewSprintModal}>
+            </c-create-record-form>
+        </c-overlay-modal>
     </template>
 </template>

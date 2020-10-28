@@ -8,10 +8,10 @@
                 Filter Sprints &gt;&gt;
             </span>
         </div>
-        <div class="slds-p-around_small" style={listStyle}>
+        <div class={sprintItemClass}>
             <ul class="slds-has-dividers_around-space">
                 <template for:each={sprints} for:item="sprint">
-                    <li class="slds-item sprint-item" key={sprint.id} style={sprint.style}>
+                    <li class={sprint.class} key={sprint.id}>
                         <c-sprint-list-item sprint-id={sprint.id} sprint-number={sprint.sprintNumber}
                             title={sprint.title} description={sprint.description} release-date={sprint.releaseDate}
                             type={sprint.type} status={sprint.status} base-url={baseUrl.data}
@@ -22,7 +22,7 @@
         </div>
     </template>
     <template if:true={openFilter}>
-        <div class="slds-p-around_small" style="width:100%; overflow:auto;">
+        <div class="slds-p-around_small filter-container">
             <p class="slds-m-top_large slds-text-heading_label">Sprint Type</p>
             <p class="slds-text-heading_medium">
                 <lightning-radio-group name="sprintRadioGroup" label="Sprint Type" options={sprintTypes}

@@ -4,13 +4,13 @@ import getBaseUrl from "@salesforce/apex/SprinterUtil.getBaseUrl";
 import { showError, showNoDataError } from "c/utils";
 
 export default class SprintListMain extends LightningElement {
-  @track sprints;
+  @track sprints = [];
 
   @track openFilter = false;
   @track selectedSprintType = "all";
   @track selectedTimespan = "last20";
 
-  @api listStyle = "width:100%; overflow-y:auto; max-height: 75vh;";
+  @api listClass;
 
   connectedCallback() {
     //Get all sprints
@@ -19,6 +19,7 @@ export default class SprintListMain extends LightningElement {
 
   @wire(getBaseUrl) baseUrl;
 
+  @api
   getSprints() {
     getFilteredSprints({
       type: this.selectedSprintType,
@@ -26,7 +27,7 @@ export default class SprintListMain extends LightningElement {
     })
       .then(response => {
         if (response && response.length) {
-          this.sprints = this.addSprintStyle(
+          this.sprints = this.addSprintClass(
             JSON.parse(JSON.stringify(response))
           );
         } else {
@@ -39,14 +40,14 @@ export default class SprintListMain extends LightningElement {
       });
   }
 
-  addSprintStyle(sprints) {
+  addSprintClass(sprints) {
     sprints.forEach(element => {
       if (element.type && element.type.includes("Emergency")) {
-        element.style = 'border-bottom: 2px solid tomato;"';
+        element.class = "slds-item sprint-item emergency-sprint";
       } else if (element.type && element.type.includes("Beta")) {
-        element.style = 'border-bottom: 2px solid blueviolet;"';
+        element.class = "slds-item sprint-item beta-sprint";
       } else {
-        element.style = 'border-bottom: 2px solid yellowgreen;"';
+        element.class = "slds-item sprint-item prod-sprint";
       }
     });
     return sprints;
@@ -106,5 +107,11 @@ export default class SprintListMain extends LightningElement {
       default:
         return this.selectedTimespan;
     }
+  }
+
+  get sprintItemClass() {
+    return this.listClass
+      ? `slds-p-around_small ${this.listClass}`
+      : "slds-p-around_small";
   }
 }

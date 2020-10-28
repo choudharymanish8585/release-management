@@ -104,4 +104,40 @@ public with sharing class UserStoryListItemControllerTest {
     Test.stopTest();
     System.assert(result != 'success', 'invalid operation');
   }
+
+  @IsTest
+  static void testUserStoryByIdTest() {
+    List<SObject> userStories = Database.query('Select Id From User_Story__c');
+    Test.startTest();
+    SprinterUtil.UserStoryWrapper userStory = UserStoryListItemController.getUserStoryById(
+      userStories[0].Id
+    );
+    Test.stopTest();
+    System.assert(userStory != null, 'No user story components found');
+    System.assertEquals(
+      userStories[0].Id,
+      userStory.id,
+      'User story id does not match'
+    );
+  }
+
+  @IsTest
+  static void testUserStoryByIdTestNegative1() {
+    Test.startTest();
+    SprinterUtil.UserStoryWrapper userStory = UserStoryListItemController.getUserStoryById(
+      null
+    );
+    Test.stopTest();
+    System.assert(userStory == null, 'Invalid result');
+  }
+
+  @IsTest
+  static void testUserStoryByIdTestNegative2() {
+    Test.startTest();
+    SprinterUtil.UserStoryWrapper userStory = UserStoryListItemController.getUserStoryById(
+      'asdasdad'
+    );
+    Test.stopTest();
+    System.assert(userStory == null, 'Invalid result');
+  }
 }

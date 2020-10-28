@@ -1,62 +1,84 @@
-import { LightningElement, api, track, wire } from 'lwc';
-import getUserStoriesBySprint from '@salesforce/apex/UserStoryListController.getUserStoriesBySprint';
-import getBaseUrl from '@salesforce/apex/SprinterUtil.getBaseUrl';
-import { CurrentPageReference, NavigationMixin } from 'lightning/navigation';
-import {showError, showNoDataError} from 'c/utils';
-import { registerListener, unregisterAllListeners } from 'c/pubsub';
+import { LightningElement, api, track, wire } from "lwc";
+import getUserStoriesBySprint from "@salesforce/apex/UserStoryListController.getUserStoriesBySprint";
+import getBaseUrl from "@salesforce/apex/SprinterUtil.getBaseUrl";
+import { CurrentPageReference } from "lightning/navigation";
+import { showError, showNoDataError } from "c/utils";
+import { registerListener, unregisterAllListeners, fireEvent } from "c/pubsub";
 
-export default class UserStoryList extends NavigationMixin(LightningElement) {
-    @api sprintId;
-    @track userStories;
-    @track privateSprintId;
+export default class UserStoryList extends LightningElement {
+  @api sprintId;
+  @track userStories;
 
-    @wire(CurrentPageReference) pageRef;
-    @wire(getBaseUrl) baseUrl;
+  @wire(CurrentPageReference) pageRef;
+  @wire(getBaseUrl) baseUrl;
 
-    connectedCallback(){
-        if(this.sprintId){
-            this.privateSprintId = this.sprintId;
-            this.getUserStories(this.sprintId);
-        } else{
-            registerListener('sprintselect', this.handleSprintClick, this);
+  isModalOpen = false;
+  sprintTitle = "";
+
+  connectedCallback() {
+    if (this.sprintId) {
+      this.getUserStories(this.sprintId);
+    } else {
+      registerListener("sprintselect", this.handleSprintClick, this);
+    }
+  }
+
+  disconnectedCallback() {
+    unregisterAllListeners(this);
+  }
+
+  getUserStories(sprintId) {
+    // make the list blank before refreshing the list from server
+    this.userStories = [];
+    getUserStoriesBySprint({
+      sprintId: sprintId
+    })
+      .then(response => {
+        if (response) {
+          this.userStories = response;
+        } else {
+          this.userStories = [];
+          showNoDataError(this);
         }
-    }
+      })
+      .catch(error => {
+        showError(error, this);
+      });
+  }
 
-    disconnectedCallback(){
-        unregisterAllListeners(this);
-    }
+  createUserStoryHandler() {
+    //open create user story modal
+    this.isModalOpen = true;
+  }
 
-    getUserStories(sprintId){
-        getUserStoriesBySprint({
-            sprintId : sprintId
-        }).then(response => {
-            if(response){
-                this.userStories = response;
-            } else{
-                this.userStories = [];
-                showNoDataError(this);
-            }
-        }).catch(error =>{
-            showError(error, this);
-        });
-    }
+  refreshHandler() {
+    //refresh list of user stories
+    this.getUserStories(this.sprintId);
+  }
 
-    createUserStoryHandler(){
-        this[NavigationMixin.Navigate]({
-            type: 'standard__objectPage',
-            attributes: {
-                objectApiName: 'User_Story__c',
-                actionName: 'new'
-            }
-        });
-    }
+  closeNewUserStoryModal() {
+    this.isModalOpen = false;
+  }
 
-    handleSprintClick(sprintId){
-        this.privateSprintId = sprintId;
-        this.getUserStories(sprintId);
-    }
+  userStorySuccessHandler() {
+    // get user stories
+    this.getUserStories(this.sprintId);
+    fireEvent(this.pageRef, "updatesprint", this.sprintId);
+    // close sprint modal
+    this.isModalOpen = false;
+  }
 
-    get hasSprint(){
-        return this.privateSprintId ? true : false;
-    }
+  handleSprintClick(event) {
+    this.sprintId = event.sprintId;
+    this.sprintTitle = event.sprintTitle;
+    this.getUserStories(this.sprintId);
+  }
+
+  get hasSprint() {
+    return this.sprintId ? true : false;
+  }
+
+  get cardTitle() {
+    return `${this.sprintTitle} - User Stories`;
+  }
 }

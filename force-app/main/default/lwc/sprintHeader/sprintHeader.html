@@ -27,6 +27,9 @@
                                     <lightning-button label="Edit" onclick={editSprintHandler}></lightning-button>
                                 </li>
                                 <li>
+                                    <lightning-button label="Delete" onclick={deleteSprintHandler}></lightning-button>
+                                </li>
+                                <li>
                                     <lightning-button label="Release Notes" onclick={openReleaseNotes}>
                                     </lightning-button>
                                 </li>
@@ -72,7 +75,7 @@
                 </div>
             </div>
         </div>
-        
+
 
         <template if:true={openReleaseNotesModal}>
             <div class="sf-modal">
@@ -86,11 +89,13 @@
                                 </lightning-icon>
                                 <span class="slds-assistive-text">Close</span>
                             </button>
-                            <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">{sprint.title} Release Notes
+                            <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">{sprint.title}
+                                Release Notes
                             </h2>
                         </header>
                         <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
-                            <c-sprint-release-notes sprint-id={sprint.id} sprint-description={sprint.description}></c-sprint-release-notes>
+                            <c-sprint-release-notes sprint-id={sprint.id} sprint-description={sprint.description}>
+                            </c-sprint-release-notes>
                         </div>
                         <footer class="slds-modal__footer">
                             <lightning-button label="Cancel" variant="neutral" onclick={closeModal}></lightning-button>

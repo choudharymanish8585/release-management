@@ -73,7 +73,7 @@ public with sharing class ExceptionLogger {
     String description,
     String apexClass
   ) {
-    if (Limits.getDmlStatements() == Limits.getLimitDmlStatements()) {
+    if (Limits.getDmlStatements() != Limits.getLimitDmlStatements()) {
       SObject ex = (Sobject) Type.forName('Exception__c').newInstance();
       ex.put('Apex_Class__c', apexClass);
       ex.put('Stack_Trace__c', description);

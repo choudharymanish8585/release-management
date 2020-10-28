@@ -115,6 +115,22 @@ export default class PicklistPath extends LightningElement {
     }
   }
 
+  scrollLeft() {
+    let scrollerComp = this.template.querySelector(
+      ".slds-path__scroller_inner"
+    );
+    //scroll left
+    scrollerComp.scrollLeft -= 5;
+  }
+
+  scrollRight() {
+    let scrollerComp = this.template.querySelector(
+      ".slds-path__scroller_inner"
+    );
+    //scroll right
+    scrollerComp.scrollLeft += 5;
+  }
+
   get showPath() {
     return this.picklistItems && this.picklistItems.length ? true : false;
   }

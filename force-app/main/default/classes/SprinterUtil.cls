@@ -216,7 +216,7 @@ public with sharing class SprinterUtil {
    */
   public static ReleaseNotes getReleaseNotesWrapped(String sprintId) {
     List<SObject> userStoryObjs = SprinterUtil.getReleaseNotes(sprintId);
-    List<UserStoryWrapper> userStories = SprinterUtil.wrapUserStory(
+    List<UserStoryWrapper> userStories = SprinterUtil.wrapUserStories(
       userStoryObjs
     );
 
@@ -280,6 +280,57 @@ public with sharing class SprinterUtil {
     }
   }
 
+  public static UserStoryWrapper getUserStoryByIdWrapped(String userStoryId) {
+    SObject userStoryObj = SprinterUtil.getUserStoryById(userStoryId);
+    return SprinterUtil.wrapUserStory(userStoryObj);
+  }
+
+  /**
+   * Getuser story by id
+   * @param userStoryId
+   */
+  public static SObject getUserStoryById(String userStoryId) {
+    if (userStoryId != null)
+      userStoryId = String.escapeSingleQuotes(userStoryId);
+
+    try {
+      String query =
+        'SELECT Id, ' +
+        'Name, ' +
+        'Dev_Owner__c, ' +
+        'Dev_Owner__r.Name, ' +
+        'Lead_Review__c, ' +
+        'Lead_Reviewer__c, ' +
+        'Patch_Notes__c, ' +
+        'Peer_Review__c, ' +
+        'Peer_Reviewer__c, ' +
+        'Product_Tag__c, ' +
+        'Product_Tag__r.Name, ' +
+        'SIT_Owner__c, ' +
+        'SIT_Owner__r.Name, ' +
+        'Sprint__c, ' +
+        'Status__c, ' +
+        'Type__c, ' +
+        'UAT_Owner__c, ' +
+        'UAT_Owner__r.Name, ' +
+        'Work_Item__c, ' +
+        'Number_Of_Components__c, ' +
+        'Story_Points__c, ' +
+        'Dev_Effort_Hrs__c, ' +
+        'QA_Effort_Hrs__c ' +
+        'FROM User_Story__c ' +
+        'WHERE Id =: userStoryId';
+      List<SObject> userStories = Database.query(query);
+      if (userStories != null && userStories.size() > 0) {
+        return userStories[0];
+      }
+      return null;
+    } catch (Exception e) {
+      ExceptionLogger.logException(e, SprinterUtil.class.getName(), true);
+      return null;
+    }
+  }
+
   /**
    * Get all user stories wrapped for a sprint
    * @param sprintId
@@ -288,7 +339,7 @@ public with sharing class SprinterUtil {
     String sprintId
   ) {
     List<SObject> userStoryObjs = SprinterUtil.getUserStoriesBySprint(sprintId);
-    List<UserStoryWrapper> userStories = SprinterUtil.wrapUserStory(
+    List<UserStoryWrapper> userStories = SprinterUtil.wrapUserStories(
       userStoryObjs
     );
 
@@ -405,181 +456,163 @@ public with sharing class SprinterUtil {
     return null;
   }
 
-  public static List<UserStoryWrapper> wrapUserStory(
+  public static List<UserStoryWrapper> wrapUserStories(
     List<SObject> userStoryObjs
   ) {
     if (userStoryObjs != null && userStoryObjs.size() > 0) {
       List<UserStoryWrapper> userStories = new List<UserStoryWrapper>();
       for (sObject userStoryObj : userStoryObjs) {
-        //process record here
-        UserStoryWrapper userStory = new UserStoryWrapper();
-        userStory.id = userStoryObj.Id;
-        userStory.workItem = getFieldValue(userStoryObj, 'Work_Item__c') != null
-          ? String.valueOf(getFieldValue(userStoryObj, 'Work_Item__c'))
-          : null;
-        userStory.title = getFieldValue(userStoryObj, 'Name') != null
-          ? String.valueOf(getFieldValue(userStoryObj, 'Name'))
-          : null;
-        userStory.sprintId = getFieldValue(userStoryObj, 'Sprint__c') != null
-          ? String.valueOf(getFieldValue(userStoryObj, 'Sprint__c'))
-          : null;
-        userStory.sprintTitle = getSObjectValue(userStoryObj, 'Sprint__r') !=
-          null
-          ? (getFieldValue(userStoryObj.getSObject('Sprint__r'), 'Title__c') !=
-              null
-              ? String.valueOf(
-                  getFieldValue(
-                    userStoryObj.getSObject('Sprint__r'),
-                    'Title__c'
-                  )
-                )
-              : null)
-          : null;
-        userStory.leadReviewerId = getFieldValue(
-            userStoryObj,
-            'Lead_Review__c'
-          ) != null
-          ? String.valueOf(getFieldValue(userStoryObj, 'Lead_Review__c'))
-          : null;
-        userStory.leadReviewerName = getSObjectValue(
-            userStoryObj,
-            'Lead_Review__r'
-          ) != null
-          ? (getFieldValue(userStoryObj.getSObject('Lead_Review__r'), 'Name') !=
-              null
-              ? String.valueOf(
-                  getFieldValue(
-                    userStoryObj.getSObject('Lead_Review__r'),
-                    'Name'
-                  )
-                )
-              : null)
-          : null;
-        userStory.peerReviewerId = getFieldValue(
-            userStoryObj,
-            'Peer_Reviewer__c'
-          ) != null
-          ? String.valueOf(getFieldValue(userStoryObj, 'Peer_Reviewer__c'))
-          : null;
-        userStory.peerReviewerName = getSObjectValue(
-            userStoryObj,
-            'Peer_Reviewer__r'
-          ) != null
-          ? (getFieldValue(
-                userStoryObj.getSObject('Peer_Reviewer__r'),
-                'Name'
-              ) != null
-              ? String.valueOf(
-                  getFieldValue(
-                    userStoryObj.getSObject('Peer_Reviewer__r'),
-                    'Name'
-                  )
-                )
-              : null)
-          : null;
-        userStory.numberOfComponents = getFieldValue(
-            userStoryObj,
-            'Number_Of_Components__c'
-          ) != null
-          ? Integer.valueOf(
-              getFieldValue(userStoryObj, 'Number_Of_Components__c')
-            )
-          : null;
-        userStory.type = getFieldValue(userStoryObj, 'Type__c') != null
-          ? String.valueOf(getFieldValue(userStoryObj, 'Type__c'))
-          : null;
-        userStory.status = getFieldValue(userStoryObj, 'Status__c') != null
-          ? String.valueOf(getFieldValue(userStoryObj, 'Status__c'))
-          : null;
-        userStory.devOwnerId = getFieldValue(userStoryObj, 'Dev_Owner__c') !=
-          null
-          ? String.valueOf(getFieldValue(userStoryObj, 'Dev_Owner__c'))
-          : null;
-        userStory.devOwnerName = getSObjectValue(
-            userStoryObj,
-            'Dev_Owner__r'
-          ) != null
-          ? (getFieldValue(userStoryObj.getSObject('Dev_Owner__r'), 'Name') !=
-              null
-              ? String.valueOf(
-                  getFieldValue(userStoryObj.getSObject('Dev_Owner__r'), 'Name')
-                )
-              : null)
-          : null;
-        userStory.sitOwnerId = getFieldValue(userStoryObj, 'SIT_Owner__c') !=
-          null
-          ? String.valueOf(getFieldValue(userStoryObj, 'SIT_Owner__c'))
-          : null;
-        userStory.sitOwnerName = getSObjectValue(
-            userStoryObj,
-            'SIT_Owner__r'
-          ) != null
-          ? (getFieldValue(userStoryObj.getSObject('SIT_Owner__r'), 'Name') !=
-              null
-              ? String.valueOf(
-                  getFieldValue(userStoryObj.getSObject('SIT_Owner__r'), 'Name')
-                )
-              : null)
-          : null;
-        userStory.uatOwnerId = getFieldValue(userStoryObj, 'UAT_Owner__c') !=
-          null
-          ? String.valueOf(getFieldValue(userStoryObj, 'UAT_Owner__c'))
-          : null;
-        userStory.uatOwnerName = getSObjectValue(
-            userStoryObj,
-            'UAT_Owner__r'
-          ) != null
-          ? (getFieldValue(userStoryObj.getSObject('UAT_Owner__r'), 'Name') !=
-              null
-              ? String.valueOf(
-                  getFieldValue(userStoryObj.getSObject('UAT_Owner__r'), 'Name')
-                )
-              : null)
-          : null;
-        userStory.patchNotes = getFieldValue(userStoryObj, 'Patch_Notes__c') !=
-          null
-          ? String.valueOf(getFieldValue(userStoryObj, 'Patch_Notes__c'))
-          : null;
-        userStory.productTagId = getFieldValue(
-            userStoryObj,
-            'Product_Tag__c'
-          ) != null
-          ? String.valueOf(getFieldValue(userStoryObj, 'Product_Tag__c'))
-          : null;
-        userStory.productTagName = getSObjectValue(
-            userStoryObj,
-            'Product_Tag__r'
-          ) != null
-          ? (getFieldValue(userStoryObj.getSObject('Product_Tag__r'), 'Name') !=
-              null
-              ? String.valueOf(
-                  getFieldValue(
-                    userStoryObj.getSObject('Product_Tag__r'),
-                    'Name'
-                  )
-                )
-              : null)
-          : null;
-        userStory.storyPoint = getFieldValue(userStoryObj, 'Story_Points__c') !=
-          null
-          ? Integer.valueOf(getFieldValue(userStoryObj, 'Story_Points__c'))
-          : null;
-        userStory.devEffort = getFieldValue(
-            userStoryObj,
-            'Dev_Effort_Hrs__c'
-          ) != null
-          ? Integer.valueOf(getFieldValue(userStoryObj, 'Dev_Effort_Hrs__c'))
-          : null;
-        userStory.qaEffort = getFieldValue(userStoryObj, 'QA_Effort_Hrs__c') !=
-          null
-          ? Integer.valueOf(getFieldValue(userStoryObj, 'QA_Effort_Hrs__c'))
-          : null;
-
-        userStories.add(userStory);
+        userStories.add(wrapUserStory(userStoryObj));
       }
       return userStories;
     }
     return null;
+  }
+
+  public static UserStoryWrapper wrapUserStory(SObject userStoryObj) {
+    if (userStoryObj != null) {
+      //process record here
+      UserStoryWrapper userStory = new UserStoryWrapper();
+      userStory.id = userStoryObj.Id;
+      userStory.workItem = getFieldValue(userStoryObj, 'Work_Item__c') != null
+        ? String.valueOf(getFieldValue(userStoryObj, 'Work_Item__c'))
+        : null;
+      userStory.title = getFieldValue(userStoryObj, 'Name') != null
+        ? String.valueOf(getFieldValue(userStoryObj, 'Name'))
+        : null;
+      userStory.sprintId = getFieldValue(userStoryObj, 'Sprint__c') != null
+        ? String.valueOf(getFieldValue(userStoryObj, 'Sprint__c'))
+        : null;
+      userStory.sprintTitle = getSObjectValue(userStoryObj, 'Sprint__r') != null
+        ? (getFieldValue(userStoryObj.getSObject('Sprint__r'), 'Title__c') !=
+            null
+            ? String.valueOf(
+                getFieldValue(userStoryObj.getSObject('Sprint__r'), 'Title__c')
+              )
+            : null)
+        : null;
+      userStory.leadReviewerId = getFieldValue(
+          userStoryObj,
+          'Lead_Review__c'
+        ) != null
+        ? String.valueOf(getFieldValue(userStoryObj, 'Lead_Review__c'))
+        : null;
+      userStory.leadReviewerName = getSObjectValue(
+          userStoryObj,
+          'Lead_Review__r'
+        ) != null
+        ? (getFieldValue(userStoryObj.getSObject('Lead_Review__r'), 'Name') !=
+            null
+            ? String.valueOf(
+                getFieldValue(userStoryObj.getSObject('Lead_Review__r'), 'Name')
+              )
+            : null)
+        : null;
+      userStory.peerReviewerId = getFieldValue(
+          userStoryObj,
+          'Peer_Reviewer__c'
+        ) != null
+        ? String.valueOf(getFieldValue(userStoryObj, 'Peer_Reviewer__c'))
+        : null;
+      userStory.peerReviewerName = getSObjectValue(
+          userStoryObj,
+          'Peer_Reviewer__r'
+        ) != null
+        ? (getFieldValue(userStoryObj.getSObject('Peer_Reviewer__r'), 'Name') !=
+            null
+            ? String.valueOf(
+                getFieldValue(
+                  userStoryObj.getSObject('Peer_Reviewer__r'),
+                  'Name'
+                )
+              )
+            : null)
+        : null;
+      userStory.numberOfComponents = getFieldValue(
+          userStoryObj,
+          'Number_Of_Components__c'
+        ) != null
+        ? Integer.valueOf(
+            getFieldValue(userStoryObj, 'Number_Of_Components__c')
+          )
+        : null;
+      userStory.type = getFieldValue(userStoryObj, 'Type__c') != null
+        ? String.valueOf(getFieldValue(userStoryObj, 'Type__c'))
+        : null;
+      userStory.status = getFieldValue(userStoryObj, 'Status__c') != null
+        ? String.valueOf(getFieldValue(userStoryObj, 'Status__c'))
+        : null;
+      userStory.devOwnerId = getFieldValue(userStoryObj, 'Dev_Owner__c') != null
+        ? String.valueOf(getFieldValue(userStoryObj, 'Dev_Owner__c'))
+        : null;
+      userStory.devOwnerName = getSObjectValue(userStoryObj, 'Dev_Owner__r') !=
+        null
+        ? (getFieldValue(userStoryObj.getSObject('Dev_Owner__r'), 'Name') !=
+            null
+            ? String.valueOf(
+                getFieldValue(userStoryObj.getSObject('Dev_Owner__r'), 'Name')
+              )
+            : null)
+        : null;
+      userStory.sitOwnerId = getFieldValue(userStoryObj, 'SIT_Owner__c') != null
+        ? String.valueOf(getFieldValue(userStoryObj, 'SIT_Owner__c'))
+        : null;
+      userStory.sitOwnerName = getSObjectValue(userStoryObj, 'SIT_Owner__r') !=
+        null
+        ? (getFieldValue(userStoryObj.getSObject('SIT_Owner__r'), 'Name') !=
+            null
+            ? String.valueOf(
+                getFieldValue(userStoryObj.getSObject('SIT_Owner__r'), 'Name')
+              )
+            : null)
+        : null;
+      userStory.uatOwnerId = getFieldValue(userStoryObj, 'UAT_Owner__c') != null
+        ? String.valueOf(getFieldValue(userStoryObj, 'UAT_Owner__c'))
+        : null;
+      userStory.uatOwnerName = getSObjectValue(userStoryObj, 'UAT_Owner__r') !=
+        null
+        ? (getFieldValue(userStoryObj.getSObject('UAT_Owner__r'), 'Name') !=
+            null
+            ? String.valueOf(
+                getFieldValue(userStoryObj.getSObject('UAT_Owner__r'), 'Name')
+              )
+            : null)
+        : null;
+      userStory.patchNotes = getFieldValue(userStoryObj, 'Patch_Notes__c') !=
+        null
+        ? String.valueOf(getFieldValue(userStoryObj, 'Patch_Notes__c'))
+        : null;
+      userStory.productTagId = getFieldValue(userStoryObj, 'Product_Tag__c') !=
+        null
+        ? String.valueOf(getFieldValue(userStoryObj, 'Product_Tag__c'))
+        : null;
+      userStory.productTagName = getSObjectValue(
+          userStoryObj,
+          'Product_Tag__r'
+        ) != null
+        ? (getFieldValue(userStoryObj.getSObject('Product_Tag__r'), 'Name') !=
+            null
+            ? String.valueOf(
+                getFieldValue(userStoryObj.getSObject('Product_Tag__r'), 'Name')
+              )
+            : null)
+        : null;
+      userStory.storyPoint = getFieldValue(userStoryObj, 'Story_Points__c') !=
+        null
+        ? Integer.valueOf(getFieldValue(userStoryObj, 'Story_Points__c'))
+        : null;
+      userStory.devEffort = getFieldValue(userStoryObj, 'Dev_Effort_Hrs__c') !=
+        null
+        ? Integer.valueOf(getFieldValue(userStoryObj, 'Dev_Effort_Hrs__c'))
+        : null;
+      userStory.qaEffort = getFieldValue(userStoryObj, 'QA_Effort_Hrs__c') !=
+        null
+        ? Integer.valueOf(getFieldValue(userStoryObj, 'QA_Effort_Hrs__c'))
+        : null;
+      return userStory;
+    } else {
+      return null;
+    }
   }
 
   public static List<SprintWrapper> wrapSprints(List<SObject> sprintObjs) {

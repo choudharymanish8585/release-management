@@ -3,6 +3,15 @@
         "experimentalDecorators": true,
         "baseUrl": ".",
         "paths": {
+            "c/createSprint": [
+                "createRecordForm/createSprint.js"
+            ],
+            "c/createSprintModal": [
+                "createSprintModal/createSprintModal.js"
+            ],
+            "c/overlayModal": [
+                "overlayModal/overlayModal.js"
+            ],
             "c/picklistPath": [
                 "picklistPath/picklistPath.js"
             ],
